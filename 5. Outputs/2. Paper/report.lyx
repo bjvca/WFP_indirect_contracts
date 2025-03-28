@@ -1,0 +1,1599 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\lang english
+\begin_inset Preview
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{Gashaw T Abate
+\backslash
+thanks{IFPRI DC},
+\end_layout
+
+\begin_layout Plain Layout
+
+Serge Mugabo
+\backslash
+thanks{IFPRI Rwanda},
+\end_layout
+
+\begin_layout Plain Layout
+
+Emerence Mukangabo
+\backslash
+thanks{IFPRI Rwanda}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Leocardia Nabwire
+\backslash
+thanks{Innovation Policy and Scaling Unit,
+ IFPRI,
+ Uganda},
+\end_layout
+
+\begin_layout Plain Layout
+
+Kalyani Raghunathan
+\backslash
+thanks{IFPRI,
+ New Delhi},
+\end_layout
+
+\begin_layout Plain Layout
+
+Bjorn Van Campenhout
+\backslash
+thanks{Innovation Policy and Scaling Unit,
+ IFPRI and LICOS Centre for Institutions and Economic Performance KU Leuven,
+ Belgium - corresponding author:
+ b.vancampenhout@cgiar.org}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\lang american
+Conditional Contracts in Indirect Local Procurement
+\end_layout
+
+\begin_layout Author
+Gashaw T.
+ Abate,
+ Serge Mugabo,
+ Emerence Mukangabo,
+ Leocardia Nabwire,
+ Kalyani Raghunathan,
+ Bjorn Van Campenhout
+\end_layout
+
+\begin_layout Section
+Context and description of maize value chains in Uganda
+\end_layout
+
+\begin_layout Standard
+Maize is one of the most widely cultivated staple crops in Uganda,
+ serving both as a vital food security crop and a key source of income for farmers.
+ Recognizing its importance,
+ the government has prioritized maize production as part of its agricultural strategy to support household livelihoods and strengthen national food security.
+ Maize accounts for approximately 30% of the total cropped land in Uganda,
+ making it the most extensively grown crop,
+ followed by beans at 15% (Uganda Annual Agricultural Survey,
+ 2018).
+\end_layout
+
+\begin_layout Standard
+A typical maize value chain in Uganda involves a network of interconnected actors.
+ At the upstream level,
+ agro-input dealers supply essential inputs such as improved seeds and fertilizers to smallholder farmers.
+ These farmers,
+ in turn,
+ cultivate maize by combining these inputs with land and labor.
+ Once harvested,
+ the marketable surplus is sold to traders,
+ who transport the grain to processors.
+ Processors then transform the raw maize into final products,
+ such as maize flour,
+ which is distributed to retailers and ultimately purchased by consumers.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-canonical-maize"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ provides an illustration of a stylized maize value chain in Uganda.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename VCstruct.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A canonical maize value chain
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-canonical-maize"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most farmers in Uganda continue to rely on traditional farming methods with limited use of modern agricultural inputs.
+ While some purchase improved seed varieties,
+ such as hybrids or open-pollinated varieties (OPVs),
+ many still depend on saved seeds from previous harvests,
+ constraining potential yield improvements 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mcguire2016seed"
+literal "false"
+
+\end_inset
+
+.
+ Despite government efforts to promote input use,
+ challenges related to affordability and accessibility persist.
+ Agro-input dealers,
+ primarily based in towns and trading centers,
+ supply essential inputs such as improved seeds,
+ fertilizers,
+ pesticides,
+ and farming tools.
+ However,
+ rural farmers often struggle to access high-quality inputs due to distance,
+ cost barriers,
+ and supply chain inefficiencies.
+ Additionally,
+ concerns over counterfeit or substandard products further discourage investment in improved technologies,
+ as studies have shown that input quality issues are a significant deterrent for farmers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barriga2020supply,ashour2019beliefs,bold2017lemon,miehe2023perceived"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As a result of traditional farming methods,
+ maize productivity remains low,
+ with average farm yields of about 600 kg per acre,
+ considerably lower than the potential yields reported by research stations,
+ which range from 730 kg to 1,820 kg per acre 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fermont2011estimating,gourlay2019new"
+literal "false"
+
+\end_inset
+
+.
+ Furthermore,
+ harvesting in Uganda is largely manual,
+ and post-harvest handling remains a significant challenge.
+ Farmers typically dry maize under the sun before shelling and storing it,
+ but inadequate drying techniques and poor storage facilities lead to high post-harvest losses.
+ Common storage methods include traditional granaries and polypropylene bags,
+ though both are vulnerable to pest infestations and moisture buildup,
+ further deteriorating grain quality.
+ These post-harvest inefficiencies contribute to reduced market value and increased vulnerability to seasonal price fluctuations.
+\end_layout
+
+\begin_layout Standard
+Market access is another key challenge for maize farmers.
+ Many smallholder farmers sell maize through informal channels,
+ including farmgate sales to itinerant traders who aggregate maize in trading centers and small towns.
+ Small traders,
+ often using bicycles or motorbikes (boda-bodas),
+ play a crucial role in linking farmers to markets,
+ yet their capacity is constrained by transportation limitations,
+ storage capacity challenges,
+ and fluctuating demand.
+ Wholesale traders purchase maize in bulk—
+often from small itinerant traders based in rural areas—
+and supply it to processors or exporters.
+ 
+\end_layout
+
+\begin_layout Standard
+The role of traders is often contested,
+ and indeed many development interventions supported by NGOs try to 
+\begin_inset Quotes eld
+\end_inset
+
+cut out the middlemen
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This is because traders,
+ both small and large,
+ also engage to some extent in arbitrage to capitalize on price seasonality,
+ buying up maize grain from farmers immediately post harvest when prices are low and selling during the lean season when maize is scarce and prices are high 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "van2015inter,burke2019sell"
+literal "false"
+
+\end_inset
+
+.
+ At the same time,
+ research also shows that traders enhance market participation,
+ particularly for remote farmers who would otherwise struggle to sell their produce 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BARRETT2008299,mather2013explaining,sitko2014exploitative"
+literal "false"
+
+\end_inset
+
+.
+ However,
+ inefficiencies in aggregation,
+ storage,
+ and transportation continue to limit the overall competitiveness of Uganda’s maize sector.
+\end_layout
+
+\begin_layout Standard
+Processing is another critical node in the value chain,
+ where maize is transformed into flour,
+ primarily consumed as 
+\emph on
+posho
+\emph default
+—
+a staple dish made by cooking maize flour with water into a porridge or dough-like consistency.
+ Processing businesses vary widely,
+ from small-scale mills powered by combustion engines (
+\emph on
+baga-baga
+\emph default
+) that provide milling services for local farmers to large-scale industrial processors that produce fortified maize flour for commercial distribution.
+ High-quality maize flour production requires multiple milling passes and advanced machinery,
+ with some mills equipped for packaging and export.
+\end_layout
+
+\begin_layout Standard
+Uganda’s maize flour retail sector is shaped by strong demand,
+ price sensitivity,
+ and evolving consumer preferences.
+ As a staple food,
+ maize flour is consumed widely across all income levels,
+ with demand driven by population growth,
+ urbanization,
+ and food security needs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "erenstein2022global"
+literal "false"
+
+\end_inset
+
+.
+ While formal retailers offer branded,
+ high-quality maize flour,
+ most consumers—
+especially in rural areas—
+still rely on informal markets and local mills due to affordability and flexible purchasing options.
+ Regional dietary habits also play a role,
+ with higher maize consumption in northern and eastern Uganda,
+ while central regions traditionally favor matooke.
+ Government policies also impact price and availability,
+ influencing consumer behavior.
+ For instance,
+ under Uganda's Food and Drug Act,
+ producers of maize flour are required to fortify their products with a regulated blend of vitamins and minerals aimed at reducing national micronutrient deficiency.
+\end_layout
+
+\begin_layout Section
+WFP Conditional Contracting
+\end_layout
+
+\begin_layout Standard
+Uganda is a relatively stable country in a region affected by conflict and food insecurity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "upton2011local"
+literal "false"
+
+\end_inset
+
+.
+ As a result,
+ it is a key contributor to the World Food Programme (WFP),
+ the world’s largest humanitarian organization,
+ which buys more food commodities for its food assistance programs from Uganda than from any other low- and middle-income country.
+ In 2018,
+ WFP invested 50 million USD in the Ugandan economy and purchased over 188,000 metric tons of local food commodities—
+mainly maize,
+ sorghum and beans—
+through open tendering from large traders 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2019"
+literal "false"
+
+\end_inset
+
+.
+ WFP’s food assistance programs support disadvantaged populations,
+ including food-insecure households,
+ young children and refugees and internally displaced persons.
+ In Uganda,
+ these programs help address food insecurity and malnutrition and support the growing refugee population while bolstering the country’s national social protection system;
+ particularly important given that Uganda is currently Africa’s largest refugee hosting country 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "UgandaRefugeeResponse2018"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Smallholder farmers have been a core focus of WFP’s procurement policies for at least two decades.
+ In 2004,
+ the “Food Procurement in Developing Countries” policy was initiated,
+ recognizing the role WFP had to play in developing markets,
+ supporting small traders and farmers’ groups and using procurement to encourage smallholder farmers and farmer groups to enter reliable and lucrative markets 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2006FoodProcurement"
+literal "false"
+
+\end_inset
+
+.
+ In 2007,
+ WFP’s Home-Grown School Feeding (HGSF) program was launched with the support of the Bill and Melinda Gates Foundation,
+ once again emphasizing the need for local procurement from small producers.
+ 
+\end_layout
+
+\begin_layout Standard
+Building on the HGSF but greatly expanding its scope and ambition,
+ WFP then launched a 20-country pilot of its Purchase for Progress (P4P) initiative in the wake of the 2007-08 food price crisis.
+ P4P explored procurement modalities with the potential to improve agricultural outcomes and develop country-level food markets in a way that would benefit smallholder farmers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2015P4P"
+literal "false"
+
+\end_inset
+
+.
+ In addition to its focus on high quality locally sourced food commodities,
+ the P4P pilot initiative also aimed to strengthen the capacity of smallholder farmers and farmer organizations and to build linkages to input and service providers and processors 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2015P4P"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Uganda was one of the pilot countries for the P4P initiative,
+ along with Ethiopia,
+ Kenya,
+ Rwanda,
+ South Sudan and Tanzania in east Africa,
+ and other countries in central,
+ southern and western Africa,
+ Asia and Latin America.
+ Evidence of the impacts of the P4P initiative is mixed:
+ early studies indicate that it improved farmers’ access to markets and post-harvest handling (
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "Davies2010P4P"
+literal "false"
+
+\end_inset
+
+ as cited in 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "upton2011local"
+literal "false"
+
+\end_inset
+
+) and improved gender equity 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2015P4P"
+literal "false"
+
+\end_inset
+
+,
+ though 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "lentz2016benefits"
+literal "false"
+
+\end_inset
+
+ do not find evidence of improved farmer wellbeing in the context of Tanzania despite greater commercialization.
+ In Uganda specifically,
+ large-scale local procurement by WFP appears to have accentuated price speculation among traders and resulted in an equilibrium where two types of maize quality exist:
+ high quality,
+ sold to WFP,
+ and low quality,
+ directed towards the local market 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "upton2011local"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Despite the fact that 80-90% of food procured was produced by smallholder farmers,
+ WFP procures only a small fraction directly from smallholder farmers via farmer organizations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Leao2021WFP"
+literal "false"
+
+\end_inset
+
+.
+ An analysis of Uganda’s maize value chain revealed fragmentation,
+ lack of integration among players and lack of credit and access to transport for farmers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2019"
+literal "false"
+
+\end_inset
+
+.
+ Using regular contracts and open tendering with large traders resulted in about 50% of the cash (market value) reaching smallholder farmers,
+ suggesting that employing both indirect and direct pro-smallholder contract modalities could address imbalances in the maize value chain,
+ potentially increasing benefits for smallholder farmers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Leao2021WFP"
+literal "false"
+
+\end_inset
+
+.
+ To tackle this,
+ WFP shifted to various contract modalities including both direct and indirect conditional contracts to ensure that smallholder farmers benefit from WFP’s stable demand 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2019"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+WFP’s current Local and Regional Food Procurement Policy (LRFPP) policy was approved in 2019 and began being implemented in 2020 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "WFP2024"
+literal "false"
+
+\end_inset
+
+.
+ Uganda was one of the first countries to implement the indirect conditional contracts to procure maize,
+ instituted in 2021.
+ Under this type of contract,
+ 20% of the total volume of maize provided by traders must be sourced directly from smallholder farmers,
+ with evidence of purchase (traceability evidence).
+ This conditional contract is the focus of this study.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I think it would be good to add here some figures on who much WFP has been procuring in 2023A and 2023B,
+ and if possible breakdown through the different modalities.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Methods
+\end_layout
+
+\begin_layout Subsection
+Research questions
+\end_layout
+
+\begin_layout Standard
+The overall goal of the study is to assess the impact of the indirect conditional contracts between WFP and large maize traders on maize value chain transformation or upgrading.
+ Within this broader goal,
+ our study poses the following research questions:
+\end_layout
+
+\begin_layout Itemize
+What is the impact of the conditional contract on key outcomes—
+price realization,
+ quality standards,
+ amount sold,
+ household income and other welfare indicators—
+of actors along the value chain,
+ especially for smallholder farmers and small maize traders?
+ 
+\end_layout
+
+\begin_layout Itemize
+Does the conditional contract create access to reliable markets,
+ result in value chain transformation or upgrading,
+ e.g.,
+ through improved quality standards,
+ and support sustained market engagement between traders and farmers?
+\end_layout
+
+\begin_layout Itemize
+Does the presence of a formal/institutional buyer in an area (e.g.
+ a WFP-affiliated trader or contract scheme) indirectly improve outcomes for nearby smallholders and traders who are not directly contracted?
+ A large buyer requiring higher quality or offering better prices might spur spillover effects – non-participating farmers could adopt improved practices or get higher farmgate prices due to demonstration or competitive pressure,
+ and independent traders might adjust their buying strategy.
+ 
+\end_layout
+
+\begin_layout Itemize
+What are the challenges or barriers faced with respect to conditional contracts?
+ How well are these contracts being implemented on the ground?
+\end_layout
+
+\begin_layout Subsection
+Data and identification
+\end_layout
+
+\begin_layout Standard
+The study took place in Western 
+\end_layout
+
+\begin_layout Standard
+The survey for the study of conditional contracts aimed to gather data from three distinct types of actors:
+ smallholder farmers,
+ small traders who act as intermediaries between these farmers and large suppliers,
+ and the large suppliers themselves.
+ In a first step,
+ farmers were selected randomly after stratifying them into three groups (Figure ):
+\end_layout
+
+\begin_layout Itemize
+Group 1:
+ Smallholder farmers from the traceability lists of WFP linked suppliers in four districts:
+ Kasese,
+ Kyegegwa,
+ Kiryandongo,
+ and Masindi.
+\end_layout
+
+\begin_layout Itemize
+Group 2:
+ Farmers who reside in the same four districts but do not sell to the major buyer’s linked suppliers (that is,
+ the nearest neighbor of each Group 1 farmer that is not supplying to a WFP linked supplier).
+\end_layout
+
+\begin_layout Itemize
+Group 3:
+ Farmers residing in two districts (Kabarole and Hoima) with characteristics similar to those of Group 1,
+ but where the WFP was not procuring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename wfp_study sites.jpg
+	lyxscale 25
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Study area
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Traders were identified through referral by farmers.
+ For traders,
+ we only have two groups:
+ those that are operating in areas where WFP was active and those that are operating in areas where WFP is not active.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Why did we not differentiate between buyers who sell to WFP and those that do not?
+\end_layout
+
+\end_inset
+
+ Sample sizes are in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Achieved-samples-of"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the number of large suppliers was limited,
+ an effort was made to interview all of them.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Achieved samples of maize farmers and traders by stratification group
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Achieved-samples-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{|l|c|c|c|c|c|c|}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+textbf{Group/Farmer type} &  
+\backslash
+textbf{Achieved sample} & 
+\backslash
+textbf{Men} & 
+\backslash
+textbf{Women} & 
+\backslash
+textbf{Achieved sample} & 
+\backslash
+textbf{Men} & 
+\backslash
+textbf{Women} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Group 1:
+ Conditional contract farmers} &  392 & 176 & 216 & 143 & 139 & 4 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Group 2:
+ Spillover farmers} &  389 & 178 & 211 & & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Group 4:
+ Control group farmers} & 503 & 270 & 233 & 154 & 147 & 7 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Total} &  1,284 & 624 & 660 & 297 & 286 & 11 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The primary identification strategy is to simply look at differences in mean outcomes between these groups of actors.
+ In addition to simply looking at difference between actors residing in areas covered by WFP indirect contract policies and actors that are living in control areas,
+ at the farmer level we also investigate potential spillovers of the policy.
+ To do so,
+ within areas where WFP is procuring through indirect contracts,
+ we differentiate between farmers that are directly connected to wholesalers that implement the policy and farmers that are not.
+ This inquiry would reveal if reliable market access mechanisms (like conditional contracts or institutional buyers) have community-wide benefits or only help those directly involved.
+\end_layout
+
+\begin_layout Standard
+So how does this geographic sampling actually translates into actual engagement with WFP?
+ For traders we did not differentiate between treatment and spillover traders.
+ When looking at actual engagements,
+ however,
+ only about 30 percent of farmers in areas exposed to the policy also actually delivered to a WFP connected trader in either the first or the second season of 2023.
+ From the farmer data,
+ we see that about 23 percent of farmers from the WFP list report that they have sold directly to WFP or through a WFP connected trader during either the first or second season of 2023.
+ For spillover farmers,
+ this is only about 12 percent.
+ In control areas,
+ not a single farmer reports to have sold to WFP,
+ either directly or indirectly.
+\end_layout
+
+\begin_layout Section
+Analysis
+\end_layout
+
+\begin_layout Standard
+Overall,
+ if there are no real difference between the first season of 2023 and the second season of 2023,
+ we will report outcomes for season 2023.
+\end_layout
+
+\begin_layout Subsection
+Reliable market access
+\end_layout
+
+\begin_layout Standard
+Do farmers in different groups have different types of storage?
+\end_layout
+
+\begin_layout Subsection
+Inclusivity
+\end_layout
+
+\begin_layout Standard
+We also asked traders what percentage of buyers are women.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gender-of-farmer"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows that about 30 percent of farmers are women.
+ We see that this percentage is slightly higher in areas where the policy is implemented.
+ Similarly,
+ we find that about 30 percent of farmers can be classified as youth,
+ but this seems to be similar in both groups.
+ Finally,
+ we asked traders about the percentage of smallholder farmers in their customer base.
+ Also on this inclusivity indicator,
+ we see progress in areas where the policy is implemented,
+ reaching almost half of the sellers being smallholders.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/combined_plot.png
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gender,
+ age and scale of farmer bought from
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gender-of-farmer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us also have a quick look at prices in the different groups using farmer level data.
+ Let us start by looking at prices received during transactions in the first season by interacting gender with group.
+ We start with simple regressions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/regression_results_gender.tex"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Impact on key outcomes
+\end_layout
+
+\begin_layout Subsubsection
+Price margin analysis
+\end_layout
+
+\begin_layout Standard
+A key question that many value chain studies address is how rents are distributed over different value chain actors.
+ A convenient way to illustrate this is by price spread plots,
+ that plot prices received by the actor upstream (eg the farmer) against prices received by the actor downstream (eg the trader).
+ One can then plot a 45 degree line,
+ were prices paid to upstream actors are equal to prices received from downstream actors.
+ As such,
+ points above the 45 degree line represent transactions were the downstream actor earns a positive margin,
+ while points below the 45 degree line are instances where a loss is incurred as commodities are sold at lower prices than at which they were bought.
+ 
+\end_layout
+
+\begin_layout Standard
+We start by using data at the trader level,
+ who were asked about both prices at which they buy maize (mostly from farmers) and prices at which they sell maize further downstream (mostly to wholesale traders - see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Commodity-flows"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/price_spread_alt.png
+	lyxscale 25
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Price margin analysis using trader level data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can also combine data at the farmer level with data at the trader level to triangulate the findings above.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-margin-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ calculates average prices obtained from sales to traders as reported by farmers and compares this to prices that traders report to be getting in onward sales (to eg.
+ WFP,
+ larger processors,
+ etc,
+ see also Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Commodity-flows"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ below)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/price_spread.png
+	lyxscale 25
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Price margin analysis combining farmer and trader level data
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-margin-analysis"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-margin-analysis"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows that in areas where WFP was active with Indirect conditional contracting,
+ intermediaries caputre less of the rents than in control ares.
+ For example,
+ in the first season of 2023,
+ farmers sold maize at about UGX800 per kg,
+ while traders sold at about 875,
+ implying a margin of about 10 percent.
+ In the control areas,
+ farmer sell at about 750,
+ while traders sell at 900,
+ implying a margin of 20 percent.
+ We also see that the margin reduces with overall price levels.
+ In the second season of 2023,
+ farmers in the treatment areas sold at 650,
+ while traders sold at 775,
+ implying a 20 percent margin;
+ in control areas the margin increase to 36 percent.
+\end_layout
+
+\begin_layout Subsubsection
+Sales over time
+\end_layout
+
+\begin_layout Standard
+In this part,
+ we restrict attention to non AMS farmers that made transactions between August and December 2023 (following the first season of 2023).
+ Farmers report up to 4 separate transactions,
+ but most (94 percent) report only a single transaction.
+ 
+\end_layout
+
+\begin_layout Standard
+We also look at sales transactions following the second season,
+ with sales taking place between Jan and May 2024
+\end_layout
+
+\begin_layout Standard
+Figure 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/first_seaon.png
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/second_seaon.png
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prices and volumes in each month
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Commodity flows
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Commodity-flows"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We start by using trader level data to look at commodity flows within maize value chains.
+ In particular,
+ we asked traders about maize purchase and maize sales in both the first and second season of 2023.
+ In particular,
+ we asked how much maize you purchased in the 1st season of 2023 (purchase_2023A) as well as in the 2nd season of 2023 (purchase_2023).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add findings here once we know the variable names
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We assume that all maize that was procured was also sold.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Treatment
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_treat.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Control
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_ctrl.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Commodity flows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Looking at farmer data,
+ we find that virtually all sales are to traders
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In tried to create Sankey graphs similar to the trader ones,
+ with a single source (farmer) and multiple targets (trader,
+ NGO,
+ WFP,
+ processor,
+ neighbour),
+ but averages did not make sense because of low number of observations in most categories.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Notes:
+ One of the ideas we had for identification was the exploit the fact that farmers may not sell to only one trader and maybe some would sell to WFP traders and normal traders.
+ Unfortunately,
+ most farmers report only a single transaction;
+ only about 130 farmers report more than one transaction and it would be unlikely that all these farmers are selling to a WFP trader in at least one occasion.
+ I ran a quick simulation to what the MDE for a price effect would look like and it seems we would only have reasonable power for effects that are larger than 16 percent,
+ so I parked this idea for now...
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+We find significant price effects from indirect conditional contracts,
+ with farmers affected by the policy receiving better prices for their maize and consumers paying lower prices.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+How can this be explained?
+ Do profits of traders get squeezed?
+ Or do they have lower costs because farmers deliver better quality (eg less drying needed)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We find that indirect conditional contracts have community-wide benefits or only help those directly involved.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "cond_contr"
+options "IFPRI_Style"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
