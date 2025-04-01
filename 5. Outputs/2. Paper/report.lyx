@@ -713,7 +713,37 @@ Data and identification
 \end_layout
 
 \begin_layout Standard
-The study took place in Western 
+The study took place in Western and Central Uganda (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Study-area"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Maize cultivation plays a vital role in the agricultural landscape of Western and Central Uganda,
+ serving as both a staple food and a key cash crop for rural households.
+ In these regions,
+ maize is widely grown by smallholder farmers who rely on it for household consumption,
+ income generation,
+ and food security.
+ Additionally,
+ the growing demand for maize from urban markets and agro-industrial processors (both for consumption in Uganda or neighbouring countries) has increased its commercial value,
+ encouraging investments in improved production practices and inputs.
+ Furthermore,
+ large parts of eastern Uganda that used to be known for maize production have converted to sugar cane production 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "guloba2023sugarcane"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -752,7 +782,7 @@ placement document
 alignment center
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -770,6 +800,13 @@ status open
 
 \begin_layout Plain Layout
 Study area
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Study-area"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -812,12 +849,6 @@ nolink "false"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-Since the number of large suppliers was limited,
- an effort was made to interview all of them.
  
 \end_layout
 
@@ -1003,28 +1034,45 @@ end{center}
 \end_layout
 
 \begin_layout Standard
-The primary identification strategy is to simply look at differences in mean outcomes between these groups of actors.
- In addition to simply looking at difference between actors residing in areas covered by WFP indirect contract policies and actors that are living in control areas,
- at the farmer level we also investigate potential spillovers of the policy.
- To do so,
- within areas where WFP is procuring through indirect contracts,
- we differentiate between farmers that are directly connected to wholesalers that implement the policy and farmers that are not.
- This inquiry would reveal if reliable market access mechanisms (like conditional contracts or institutional buyers) have community-wide benefits or only help those directly involved.
+The primary identification strategy involves comparing mean outcomes across groups of actors.
+ Beyond assessing differences between individuals in areas exposed to WFP’s indirect contract policies and those in control areas,
+ we also examine potential spillover effects at the farmer level.
+ Specifically,
+ within regions where WFP is active through indirect procurement,
+ we distinguish between farmers who are directly linked to participating wholesalers and those who are not.
+ This approach allows us to assess whether improved market access mechanisms—
+such as conditional contracts or institutional buyers—
+yield broader community benefits or primarily advantage those directly engaged.
 \end_layout
 
 \begin_layout Standard
-So how does this geographic sampling actually translates into actual engagement with WFP?
- For traders we did not differentiate between treatment and spillover traders.
- When looking at actual engagements,
+Survey data were collected on general household characteristics of farmers and traders,
+ including welfare and food security indicators.
+ The primary focus,
  however,
- only about 30 percent of farmers in areas exposed to the policy also actually delivered to a WFP connected trader in either the first or the second season of 2023.
- From the farmer data,
- we see that about 23 percent of farmers from the WFP list report that they have sold directly to WFP or through a WFP connected trader during either the first or second season of 2023.
- For spillover farmers,
- this is only about 12 percent.
- In control areas,
- not a single farmer reports to have sold to WFP,
- either directly or indirectly.
+ was on marketing behavior.
+ We gathered detailed information on farmers’ maize sales following both the first and second agricultural seasons of 2023,
+ and on maize cultivation during the first season of 2024.
+ For traders,
+ data were collected on both purchase and sales transactions for the 2023 seasons.
+ Additional data were gathered on actors’ core business activities—
+for farmers,
+ this included agricultural technology use and labor inputs;
+ for traders,
+ this encompassed handling and storage practices,
+ as well as access to finance.
+\end_layout
+
+\begin_layout Standard
+Regarding actual engagement with WFP,
+ our data reveal that only about 30% of farmers in policy-exposed areas delivered maize to a WFP-affiliated trader in either season of 2023.
+ From the WFP-linked farmer list,
+ approximately 23% reported selling directly to WFP or through a connected trader.
+ Among spillover farmers,
+ this figure drops to 12%.
+ In contrast,
+ no farmers in control areas reported any sales to WFP,
+ whether directly or indirectly.
 \end_layout
 
 \begin_layout Section
@@ -1043,6 +1091,47 @@ Reliable market access
 
 \begin_layout Standard
 Do farmers in different groups have different types of storage?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/cleveland.png
+	lyxscale 15
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Production
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

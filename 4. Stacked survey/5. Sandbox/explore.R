@@ -65,6 +65,7 @@ g <-	  ggplot(simulations) +
 
 #we only have 2 groups for traders but we can differentiate between indirect and spillover trader by checking if they sell to WFP - look at prices they get from WFP in seaon 1 and 2 
 dta_t <- subset(dta_t, strata != "AMS")
+dta_f <- subset(dta_f, strata != "AMS")
 # Prepare data for Season 23A
 dta_t <- dta_t %>%
 	  mutate(
@@ -166,6 +167,47 @@ dta_t$strata2 <- dta_t$strata
 dta_t$strata2[dta_t$strata == "Conditional/Spillover" & (!is.na(dta_t$q154) | !is.na(dta_t$q180))] <- "Indirect"
 dta_t$strata2[dta_t$strata == "Conditional/Spillover" & (is.na(dta_t$q154) & is.na(dta_t$q180))] <- "Spillover"
 
+### production at farmer level
+dta_f$acres_23A <- rowSums(cbind(dta_f$q38_1,dta_f$q38_2,dta_f$q38_3,dta_f$q38_4),na.rm=TRUE)
+dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean)))
+dotplot1$strata <- rownames(dotplot1)
+names(dotplot1) <- c("plotsize","share","strata")
+dotplot1$season <- "23A"
+
+dta_f$acres_23B <- rowSums(cbind(dta_f$q62_1,dta_f$q62_2,dta_f$q62_3,dta_f$q62_4,dta_f$q62_5),na.rm=TRUE)
+dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean),tapply((dta_f$q59=="Yes"),dta_f$strata,mean)))
+dotplot2$strata <- rownames(dotplot2)
+names(dotplot2) <- c("plotsize","share","strata")
+dotplot2$season <- "23B"
+
+
+dta_f$acres_24A <- rowSums(cbind(dta_f$q85_1,dta_f$q85_2,dta_f$q85_3,dta_f$q85_4),na.rm=TRUE)
+dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean),tapply((dta_f$q82=="Yes"),dta_f$strata,mean)))
+dotplot3$strata <- rownames(dotplot3)
+names(dotplot3) <- c("plotsize","share","strata")
+dotplot3$season <- "24A"
+
+alldot <- rbind(dotplot1,dotplot2,dotplot3)
+
+
+### cleveand dot plot
+
+
+# Creating a Cleveland dot plot with Season on the y-axis and color-coded Groups
+p <- ggplot(alldot, aes(x = share, y = reorder(season, -share))) +
+	  geom_point(aes(color = strata, size = plotsize), show.legend = TRUE) +
+	    scale_color_manual(values = c("Control" = "red", "Spillover" = "blue", "Indirect" = "green")) +
+	     scale_size(range = c(3,12))+ labs(x = "Share of Farmers Selling (%)", y = "Season",
+		          title = "Share of Farmers Selling and Average Plot Size by Season and Group") +
+  theme_minimal() +
+    theme(panel.grid.major.x = element_blank(),
+	          panel.grid.minor.x = element_blank(),
+		          legend.position = "right")
+
+  # Print the plot
+  print(p)
+
+ggsave("cleveland.png", plot = p, width = 12, height = 4, dpi = 300)
 
 dta_f$nr_of_transactions_23_2 <- as.numeric(dta_f$q114)
 table(dta_f$nr_of_transactions_23_2) ##only about 65 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
@@ -337,26 +379,35 @@ ggsave("stacked_horizontal_bar_chart_reversed.png", width = 8, height = 2, dpi =
 
 ### gender analysis
 ### merge in gender in transactions from first season of 2023
-transactions_23A <- merge(transactions_23A,dta_f[c("farmer_id","q8")],by.x = "FarmerID", by.y = "farmer_id")
+transactions_23A <- merge(transactions_23A,dta_f[c("farmer_id","q8","q10","q35b")],by.x = "FarmerID", by.y = "farmer_id")
 
 names(transactions_23A)[names(transactions_23A) == 'q8'] <- 'gender'
+names(transactions_23A)[names(transactions_23A) == 'q10'] <- 'age'
+names(transactions_23A)[names(transactions_23A) == 'q35b'] <- 'area'
 # Make sure your variables are in the right format
 transactions_23A$strata <- as.factor(transactions_23A$strata)
 transactions_23A$gender <- as.factor(transactions_23A$gender)
+transactions_23A$youth <- as.numeric(transactions_23A$age)<35
+transactions_23A$small <- as.numeric(transactions_23A$area)<2.5
 
 # Run the regressions
 model1 <- lm(Price ~ strata, data = transactions_23A)
 model2 <- lm(Price ~ gender, data = transactions_23A)
 model3 <- lm(Price ~ strata * gender, data = transactions_23A)
+model4 <- lm(Price ~ youth, data = transactions_23A)
+model5 <- lm(Price ~ strata * youth, data = transactions_23A)
+model6 <- lm(Price ~ small, data = transactions_23A)
+model7 <- lm(Price ~ strata * small, data = transactions_23A)
 
 # Generate the LaTeX table
-stargazer(model1, model2, model3,
+stargazer(model1, model2, model3, model4, model5, model6, model7,
           type = "latex",
           title = "Regression Results: Price Analysis",
           label = "tab:regression_results",
           dep.var.labels = "Price",
           column.sep.width = "15pt",
-          font.size = "small", out = "regression_results_gender.tex", float.env = "sidewaystable")
+          font.size = "small", out = "regression_results_gender.tex", float.env = "sidewaystable", keep.stat = c("rsq", "adj.rsq", "n"))
+
 
 
 ### price spread analysis - 3 groups and two seasons
@@ -760,3 +811,6 @@ S_net_A23 <- create_sankey(links, "Spillover")
 
 tapply(data_grph$WFP == "Yes", data_grph$strata, mean)*100
 tapply(data_grph$VolumeSold, data_grph$strata, mean)
+### is WFP a reliable buyer
+
+
