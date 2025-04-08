@@ -1,5 +1,6 @@
 # This script is use to run the main analysis for the WFP project
-rm(list = ls())
+# It is called by the lyx file as well
+#rm(list = ls())
 # Load the required libraries
 library(chatR)
 library(ggplot2)
@@ -7,14 +8,20 @@ library(lubridate)
 library(RColorBrewer)
 library(reshape2)
 library(forcats)
-library(leaflet)
 library(patchwork)
 library(stargazer)
-# Set the working directory
-dir <- getwd()
-dir <- strsplit(dir, "5. Sandbox")[[1]]
-dta_f <- read.csv(paste(dir, "4. Data/data/DID_WFP_Farmer_data.csv",sep ="/"))
-dta_t <- read.csv(paste(dir, "4. Data/data/DID_WFP_Trader_data.csv",sep ="/"))
+library(ggridges)
+library(lavaan)
+# Set the working director"
+# Check if the object 'pathA' exists
+if (exists("pathA")) {
+  dir <- pathA
+} else {
+  dir <- getwd() # Get the current working directory if 'pathA' does not exist
+  dir <- strsplit(dir, "4. Stacked survey/5. Sandbox")[[1]]
+}
+dta_f <- read.csv(paste(dir, "4. Stacked survey/4. Data/data/DID_WFP_Farmer_data.csv",sep ="/"))
+dta_t <- read.csv(paste(dir, "4. Stacked survey/4. Data/data/DID_WFP_Trader_data.csv",sep ="/"))
 dta_t$strata[dta_t$strata == ""] <- "Conditional/Spillover"
 ### one of the key identification strategies was to exploit within farmer differences with respect to who they sell to, so we start by looking if we have sufficient farmers that make more than one transaction (in the first season of 2023
 
@@ -158,7 +165,6 @@ plot_smallholder_23B <- plot_function(plot_data_smallholder_23B, "Smallholder - 
 
 # Combine plots using patchwork
 combined_plot <- plot_gender_23A / plot_youth_23A / plot_smallholder_23A
-print(combined_plot)
 
 ggsave("combined_plot.png", plot = combined_plot, width = 12, height = 8, dpi = 300)
 
@@ -169,20 +175,23 @@ dta_t$strata2[dta_t$strata == "Conditional/Spillover" & (is.na(dta_t$q154) & is.
 
 ### production at farmer level
 dta_f$acres_23A <- rowSums(cbind(dta_f$q38_1,dta_f$q38_2,dta_f$q38_3,dta_f$q38_4),na.rm=TRUE)
-dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean)))
+dta_f$acres_23A[dta_f$q35h!="Yes"] <- NA
+dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot1$strata <- rownames(dotplot1)
 names(dotplot1) <- c("plotsize","share","strata")
 dotplot1$season <- "23A"
 
 dta_f$acres_23B <- rowSums(cbind(dta_f$q62_1,dta_f$q62_2,dta_f$q62_3,dta_f$q62_4,dta_f$q62_5),na.rm=TRUE)
-dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean),tapply((dta_f$q59=="Yes"),dta_f$strata,mean)))
+dta_f$acres_23B[dta_f$q59!="Yes"] <- NA
+dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q59=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot2$strata <- rownames(dotplot2)
 names(dotplot2) <- c("plotsize","share","strata")
 dotplot2$season <- "23B"
 
 
-dta_f$acres_24A <- rowSums(cbind(dta_f$q85_1,dta_f$q85_2,dta_f$q85_3,dta_f$q85_4),na.rm=TRUE)
-dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean),tapply((dta_f$q82=="Yes"),dta_f$strata,mean)))
+dta_f$acres_24A <- rowSums(cbind(as.numeric(dta_f$q85_1),as.numeric(dta_f$q85_2),as.numeric(dta_f$q85_3),as.numeric(dta_f$q85_4)),na.rm=TRUE)
+dta_f$acres_24A[dta_f$q82!="Yes"] <- NA
+dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean, na.rm=TRUE),tapply((dta_f$q82=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot3$strata <- rownames(dotplot3)
 names(dotplot3) <- c("plotsize","share","strata")
 dotplot3$season <- "24A"
@@ -205,12 +214,14 @@ p <- ggplot(alldot, aes(x = share, y = reorder(season, -share))) +
 		          legend.position = "right")
 
   # Print the plot
-  print(p)
+  #print(p)
 
 ggsave("cleveland.png", plot = p, width = 12, height = 4, dpi = 300)
 
 dta_f$nr_of_transactions_23_2 <- as.numeric(dta_f$q114)
 table(dta_f$nr_of_transactions_23_2) ##only about 65 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
+dta_f$q203b <- as.numeric(dta_f$q203b)
+
 dta_f$q108_1 <- dta_f$q108_1*dta_f$q203b
 dta_f$q108_2 <- dta_f$q108_2*dta_f$q203b
 dta_f$q108_3 <- dta_f$q108_3*dta_f$q203b
@@ -218,14 +229,7 @@ dta_f$q108_4 <- dta_f$q108_4*dta_f$q203b
 dta_f$q108_5 <- dta_f$q108_5*dta_f$q203b
 dta_f$q108_6 <- dta_f$q108_6*dta_f$q203b
 
-### look at transactions - this is for first season of 2023
-table(dta_f$nr_of_transactions_23_2) ##only about 65 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
-dta_f$q108_1 <- dta_f$q108_1*dta_f$q203b
-dta_f$q108_2 <- dta_f$q108_2*dta_f$q203b
-dta_f$q108_3 <- dta_f$q108_3*dta_f$q203b
-dta_f$q108_4 <- dta_f$q108_4*dta_f$q203b
-dta_f$q108_5 <- dta_f$q108_5*dta_f$q203b
-dta_f$q108_6 <- dta_f$q108_6*dta_f$q203b
+dta_f$q109b_2 <- as.numeric(dta_f$q109b_2)
 
 ### look at transactions - this is for first season of 2023
 ### up to six separate transactions are recorded for each farmer
@@ -290,6 +294,8 @@ ggsave("first_seaon.png", plot = last_plot(), width = 8, height = 6, dpi = 300)
 
 data_grph_first_season_2023 <- data_grph
 ##now for second season of 2023
+dta_f$q116_1 <- as.numeric(dta_f$q116_1)
+dta_f$q117b_1 <- as.numeric(dta_f$q117b_1)
 
 data_grph_1 <- data.frame(dta_f$farmer_id,dta_f$q115_1,dta_f$q116_1*dta_f$q203b,dta_f$q117b_1,dta_f$strata)
 names(data_grph_1) <- c("FarmerID","Month","VolumeSold","Price","strata")
@@ -399,14 +405,19 @@ model5 <- lm(Price ~ strata * youth, data = transactions_23A)
 model6 <- lm(Price ~ small, data = transactions_23A)
 model7 <- lm(Price ~ strata * small, data = transactions_23A)
 
-# Generate the LaTeX table
-stargazer(model1, model2, model3, model4, model5, model6, model7,
+# Generate the LaTeX table - this is a trick to make sure stargazer does not print output when I want to have a file that I include in the lyx document
+mod_stargazer <- function(file,...){
+	  output <- capture.output(stargazer(...))
+    # cat out the results - this is essentially just what stargazer does too
+    cat(paste(output, collapse = "\n"), "\n",file = file)
+}
+mod_stargazer("regression_results_gender.tex",model1, model2, model3, model4, model5, model6, model7,
           type = "latex",
           title = "Regression Results: Price Analysis",
           label = "tab:regression_results",
           dep.var.labels = "Price",
           column.sep.width = "15pt",
-          font.size = "small", out = "regression_results_gender.tex", float.env = "sidewaystable", keep.stat = c("rsq", "adj.rsq", "n"))
+          font.size = "small",float.env = "sidewaystable", keep.stat = c("rsq", "adj.rsq", "n"))
 
 
 
@@ -422,8 +433,8 @@ avg_volume_price_by_season_strata <- all_transactions %>%
 	  group_by(strata, season) %>%
 	    summarise(AvgVolume = mean(VolumeSold, na.rm = TRUE), AvgPrice = mean(Price, na.rm = TRUE), .groups = "drop")
 
-season2 <- data.frame(cbind(dta_t$q154,dta_t$q157,dta_t$q155,dta_t$q158,dta_t$q64,dta_t$strata))
-season1 <- data.frame(cbind(dta_t$q180,dta_t$q183,dta_t$q181,dta_t$q184,dta_t$q85,dta_t$strata))
+season2 <- data.frame(cbind(dta_t$trader_id, dta_t$q154,dta_t$q157,dta_t$q155,dta_t$q158,dta_t$q64,dta_t$strata))
+season1 <- data.frame(cbind(dta_t$trader_id, dta_t$q180,dta_t$q183,dta_t$q181,dta_t$q184,dta_t$q85,dta_t$strata))
 season2$X1 <- as.numeric(season2$X1)
 season1$X1 <- as.numeric(season1$X1)
 season2$X2 <- as.numeric(season2$X2)
@@ -432,7 +443,7 @@ season1$X2 <- as.numeric(season1$X2)
 season1$season <- "Season 1"
 season2$season <- "Season 2"
 all <- rbind(season1, season2)
-names(all) <- c("Price_WFP","Price_non_WFP","Vol_WFP","Vol_non_WFP","price_farmer","strata","season")
+names(all) <- c("trader_id","Price_WFP","Price_non_WFP","Vol_WFP","Vol_non_WFP","price_farmer","strata","season")
 all <- subset(all, strata != "AMS")
 
 all$Price_WFP <- as.numeric(all$Price_WFP)
@@ -755,6 +766,11 @@ data_grph <- data_grph[data_grph$strata != "AMS",]
 #Average sales by Who and strata with counts
 summary_dta_farmers <- data_grph %>%
 	  group_by(Who, strata) %>%
+	    summarise(
+		       Mean_Value = mean(VolumeSold, na.rm = TRUE),
+		           Count = n(),
+		           .groups = "drop"
+		         )
 
 # Get all unique combinations of Who and strata in your data
 all_combinations <- expand.grid(
@@ -782,7 +798,7 @@ total_by_strata <- summary_dta_farmers_complete %>%
 		  select(Who, strata, Mean_Value, Percentage, Count)  # Include Count in final table
 
 # View the complete table with percentages and counts
-print(summary_dta_farmers_complete)
+#print(summary_dta_farmers_complete)
 # Create Sankey Graph - however, there are virtually no transactions apart from transactions with traders
 # so the Sankey graph will not be very informative
 agents <- data.frame(c("Farmer",levels(as.factor(summary_dta_farmers_complete$Who))))
@@ -813,4 +829,46 @@ tapply(data_grph$WFP == "Yes", data_grph$strata, mean)*100
 tapply(data_grph$VolumeSold, data_grph$strata, mean)
 ### is WFP a reliable buyer
 
+### does indirect conditional contracts increase competiton?
 
+dta_t$competition <- as.numeric(dta_t$q42)
+tapply(dta_t$competition, dta_t$strata, mean, na.rm=TRUE)
+
+#
+### all has data af the trader level of prices paid to farmers and 
+## we can merge in competition data here
+all <- merge(all, dta_t[c("trader_id","competition")], by.x = "trader_id", by.y = "trader_id")
+
+all$competition <- as.numeric(all$competition > median(all$competition, na.rm = TRUE))
+all$strata <- relevel(as.factor(all$strata), ref = "Control")
+
+model1 <- (lm(competition ~ strata, data = all))
+model2 <- (lm(price_farmer ~ strata + competition, data = all))
+
+a <- coef(model1)["strataConditional/Spillover"]  # Path A coefficient
+b <- coef(model2)["competition"]        # Path B coefficient
+c_prime <- coef(model2)["strataConditional/Spillover"]  # Direct effect (Path C')
+
+indirect_effect <- a * b
+total_effect <- c_prime + indirect_effect
+
+# Display the results
+#cat("Indirect Effect: ", indirect_effect, "\n")
+#cat("Direct Effect: ", c_prime, "\n")
+#cat("Total Effect: ", total_effect, "\n")
+###now do this with path analysis using lavaan
+specmod <- "
+price_farmer ~ c*strata
+competition ~ a*strata
+price_farmer ~ b*competition
+
+ab := a*b
+"
+
+fitmod <- sem(specmod, data = all)
+summary(fitmod, fit.measures = TRUE, rsquare = TRUE)
+
+set.seed(12345)
+
+fitmod <- sem(specmod,bootstrap = 500,se = 'bootstrap',data = all)
+mediation <- parameterEstimates(fitmod,  ci=TRUE, level = .95, boot.ci.type ='perc')
