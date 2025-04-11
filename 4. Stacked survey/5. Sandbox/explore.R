@@ -12,11 +12,15 @@ library(patchwork)
 library(stargazer)
 library(ggridges)
 library(lavaan)
+library(leaflet)
+library(RColorBrewer)
+library(geosphere)
 # Set the working director"
 # Check if the object 'pathA' exists
 if (exists("pathA")) {
-  dir <- pathA
+      	dir <- pathA
 } else {
+	rm(list = ls())
   dir <- getwd() # Get the current working directory if 'pathA' does not exist
   dir <- strsplit(dir, "4. Stacked survey/5. Sandbox")[[1]]
 }
@@ -24,9 +28,6 @@ dta_f <- read.csv(paste(dir, "4. Stacked survey/4. Data/data/DID_WFP_Farmer_data
 dta_t <- read.csv(paste(dir, "4. Stacked survey/4. Data/data/DID_WFP_Trader_data.csv",sep ="/"))
 dta_t$strata[dta_t$strata == ""] <- "Conditional/Spillover"
 ### one of the key identification strategies was to exploit within farmer differences with respect to who they sell to, so we start by looking if we have sufficient farmers that make more than one transaction (in the first season of 2023
-
-dta_f$nr_of_transactions_23_1 <- as.numeric(dta_f$q106)
-table(dta_f$nr_of_transactions_23_1) 
 
 ##only about 130 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
 ##this would be about 300 observations
@@ -73,6 +74,20 @@ g <-	  ggplot(simulations) +
 #we only have 2 groups for traders but we can differentiate between indirect and spillover trader by checking if they sell to WFP - look at prices they get from WFP in seaon 1 and 2 
 dta_t <- subset(dta_t, strata != "AMS")
 dta_f <- subset(dta_f, strata != "AMS")
+
+dta_f$nr_of_transactions_23_1 <- as.numeric(dta_f$q106)
+### indicator of market participation in 23A
+table(dta_f$nr_of_transactions_23_1)
+dta_f$market_participation_23A <- 0
+dta_f$market_participation_23A[dta_f$nr_of_transactions_23_1 > 0] <- 1
+dta_f$market_participation_23A[dta_f$q35h!="Yes"] <- NA
+
+dta_f$nr_of_transactions_23_2 <- as.numeric(dta_f$q114)
+table(dta_f$nr_of_transactions_23_2) ##only about 65 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
+dta_f$market_participation_23B <- 0
+dta_f$market_participation_23B[dta_f$nr_of_transactions_23_2 > 0] <- 1
+dta_f$market_participation_23B[dta_f$q59!="Yes"] <- NA
+
 # Prepare data for Season 23A
 dta_t <- dta_t %>%
 	  mutate(
@@ -175,14 +190,18 @@ dta_t$strata2[dta_t$strata == "Conditional/Spillover" & (is.na(dta_t$q154) & is.
 
 ### production at farmer level
 dta_f$acres_23A <- rowSums(cbind(dta_f$q38_1,dta_f$q38_2,dta_f$q38_3,dta_f$q38_4),na.rm=TRUE)
-dta_f$acres_23A[dta_f$q35h!="Yes"] <- NA
+dta_f$production_23A <- rowSums(cbind(as.numeric(dta_f$q39_1),dta_f$q39_2,dta_f$q39_3,dta_f$q39_4),na.rm=TRUE)*as.numeric(dta_f$q203b)
+dta_f$acres_23A[dta_f$q35h!="Yes"]<- NA
+dta_f$production_23A[dta_f$q35h!="Yes"]<- NA
 dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot1$strata <- rownames(dotplot1)
 names(dotplot1) <- c("plotsize","share","strata")
 dotplot1$season <- "23A"
-
+dta_f$q63_2[dta_f$q63_2 > 100] <- NA
 dta_f$acres_23B <- rowSums(cbind(dta_f$q62_1,dta_f$q62_2,dta_f$q62_3,dta_f$q62_4,dta_f$q62_5),na.rm=TRUE)
+dta_f$production_23B <- rowSums(cbind(as.numeric(dta_f$q63_1),dta_f$q63_2,dta_f$q63_3,dta_f$q63_4,dta_f$q63_5),na.rm=TRUE)*as.numeric(dta_f$q203b)
 dta_f$acres_23B[dta_f$q59!="Yes"] <- NA
+dta_f$production_23B[dta_f$q59!="Yes"] <- NA
 dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q59=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot2$strata <- rownames(dotplot2)
 names(dotplot2) <- c("plotsize","share","strata")
@@ -218,8 +237,6 @@ p <- ggplot(alldot, aes(x = share, y = reorder(season, -share))) +
 
 ggsave("cleveland.png", plot = p, width = 12, height = 4, dpi = 300)
 
-dta_f$nr_of_transactions_23_2 <- as.numeric(dta_f$q114)
-table(dta_f$nr_of_transactions_23_2) ##only about 65 households recoded more than one transaction in first season of 2023, so the within regression is probably not worth exploring
 dta_f$q203b <- as.numeric(dta_f$q203b)
 
 dta_f$q108_1 <- dta_f$q108_1*dta_f$q203b
@@ -382,7 +399,37 @@ overall_first_season <- data_grph_first_season_2023 %>%
   theme_minimal()  # Clean theme
 # Save the plot
 ggsave("stacked_horizontal_bar_chart_reversed.png", width = 8, height = 2, dpi = 300)
+#### volumes sold by farmer
+sold_first_season <-aggregate(VolumeSold ~ FarmerID, data = data_grph_first_season_2023, FUN = sum, na.rm = TRUE)
+sold_second_season <-aggregate(VolumeSold ~ FarmerID, data = data_grph_second_season_2023, FUN = sum, na.rm = TRUE)
+names(sold_first_season)[names(sold_first_season) == 'VolumeSold'] <- 'VolumeSold_23A'
+names(sold_second_season)[names(sold_second_season) == 'VolumeSold'] <- 'VolumeSold_23B'
 
+### merge into dta_f
+dta_f <- merge(dta_f,sold_first_season, by.x = "farmer_id",by.y="FarmerID", all.x = TRUE)
+dta_f <- merge(dta_f,sold_second_season, by.x = "farmer_id",by.y="FarmerID", all.x = TRUE)
+dta_f$VolumeSold_23A[dta_f$market_participation_23A == 0] <- 0
+dta_f$VolumeSold_23B[dta_f$market_participation_23B == 0] <- 0
+#### we also need to know production
+dta_f$share_sold_23A <- dta_f$VolumeSold_23A/dta_f$production_23A*100
+dta_f$share_sold_23B <- dta_f$VolumeSold_23B/dta_f$production_23B*100
+dta_f$share_sold_23A[dta_f$share_sold_23A>100] <- 100
+dta_f$share_sold_23B[dta_f$share_sold_23B>100] <- 100
+
+
+### delta production
+dta_f$delta_production <- dta_f$production_23B - dta_f$production_23A
+#delta area
+dta_f$delta_area <- dta_f$acres_23B - dta_f$acres_23A
+
+# Create the plot
+ggplot(dta_f, aes(x = delta_area, y = delta_production, color = strata)) +
+  geom_point() +  # This adds the scatter plot points
+  labs(x = "area", y = "production", title = "Extensive and intensive change in production") +
+  coord_cartesian(xlim = c(-5, 5), ylim = c(-5000, 5000)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +  # Horizontal line at y = 0
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +  # Vertical line at x = 0
+  theme_minimal()   # Adds a minimal theme to clean up non-data ink
 ### gender analysis
 ### merge in gender in transactions from first season of 2023
 transactions_23A <- merge(transactions_23A,dta_f[c("farmer_id","q8","q10","q35b")],by.x = "FarmerID", by.y = "farmer_id")
@@ -399,25 +446,6 @@ transactions_23A$small <- as.numeric(transactions_23A$area)<2.5
 # Run the regressions
 model1 <- lm(Price ~ strata, data = transactions_23A)
 model2 <- lm(Price ~ gender, data = transactions_23A)
-model3 <- lm(Price ~ strata * gender, data = transactions_23A)
-model4 <- lm(Price ~ youth, data = transactions_23A)
-model5 <- lm(Price ~ strata * youth, data = transactions_23A)
-model6 <- lm(Price ~ small, data = transactions_23A)
-model7 <- lm(Price ~ strata * small, data = transactions_23A)
-
-# Generate the LaTeX table - this is a trick to make sure stargazer does not print output when I want to have a file that I include in the lyx document
-mod_stargazer <- function(file,...){
-	  output <- capture.output(stargazer(...))
-    # cat out the results - this is essentially just what stargazer does too
-    cat(paste(output, collapse = "\n"), "\n",file = file)
-}
-mod_stargazer("regression_results_gender.tex",model1, model2, model3, model4, model5, model6, model7,
-          type = "latex",
-          title = "Regression Results: Price Analysis",
-          label = "tab:regression_results",
-          dep.var.labels = "Price",
-          column.sep.width = "15pt",
-          font.size = "small",float.env = "sidewaystable", keep.stat = c("rsq", "adj.rsq", "n"))
 
 
 
@@ -835,11 +863,16 @@ dta_t$competition <- as.numeric(dta_t$q42)
 tapply(dta_t$competition, dta_t$strata, mean, na.rm=TRUE)
 
 #
-### all has data af the trader level of prices paid to farmers and 
+### all has data of the trader level of prices paid to farmers and 
 ## we can merge in competition data here
+##keep only season 1
+
+all <- subset(all, season == "Season 1")
+
 all <- merge(all, dta_t[c("trader_id","competition")], by.x = "trader_id", by.y = "trader_id")
 
-all$competition <- as.numeric(all$competition > median(all$competition, na.rm = TRUE))
+#all$competition <- as.numeric(all$competition > median(all$competition, na.rm = TRUE))
+all$competition[all$competition >= 50] <- NA
 all$strata <- relevel(as.factor(all$strata), ref = "Control")
 
 model1 <- (lm(competition ~ strata, data = all))
@@ -871,4 +904,87 @@ summary(fitmod, fit.measures = TRUE, rsquare = TRUE)
 set.seed(12345)
 
 fitmod <- sem(specmod,bootstrap = 500,se = 'bootstrap',data = all)
-mediation <- parameterEstimates(fitmod,  ci=TRUE, level = .95, boot.ci.type ='perc')
+mediation_t <- parameterEstimates(fitmod,  ci=TRUE, level = .95, boot.ci.type ='perc')
+
+### can we also do this with the farmer data? Lets try this for season 23 A
+# merge in gps data using old_farmerid
+dta_f_gps <- merge(dta_f,read.csv("/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Confidential/Data/farmer/raw/latest.csv")[c("Farmer_ID","check.maize._location_latitude","check.maize._location_longitude")],by.x="old_farmerid", by.y="Farmer_ID", all.x=T)
+dta_t_gps <- merge(dta_t,read.csv("/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Confidential/Data/trader/raw/latest.csv")[c("Trader_ID","trader.check._location_latitude","trader.check._location_longitude")],by.x="old_traderid", by.y="Trader_ID", all.x=T)
+
+#create a farmer level index of exposure to competition. We do this by taking the average of the number of other traders in the are as reported by the traders weighted by the inverse distance to the trader.
+dta_f_gps$competition <- NA
+
+for (i in 1:nrow(dta_f_gps)) {
+        dist_vec <- rep(NA, nrow(dta_t_gps))
+        for (j in 1:nrow(dta_t_gps)) {
+                dist_vec[j] <- distHaversine(c(as.numeric(dta_f_gps$check.maize._location_longitude[i]), as.numeric(dta_f_gps$check.maize._location_latitude[i])), c(as.numeric(dta_t_gps$trader.check._location_longitude[j]), as.numeric(dta_t_gps$trader.check._location_latitude[j])))
+        }
+        dist_vec <- 1/dist_vec
+        dist_vec <- dist_vec / sum(dist_vec, na.rm=T)
+        dta_t_gps$weight <- dist_vec
+        dta_f_gps$competition[i] <- sum(dta_t_gps$competition*dta_t_gps$weight, na.rm=T)
+}
+dta_f_gps$competition[dta_f_gps$competition == 0] <- NA
+# now we need to calcuate average prices received during the first season of 2023
+
+prices_23A <- aggregate(transactions_23A$Price, by = list(transactions_23A$FarmerID), FUN = mean, na.rm = TRUE)
+names(prices_23A) <- c("Farmer_ID","price")
+#merge in prices into dta_f_gps
+dta_f_gps <- merge(dta_f_gps, prices_23A, by.x = "farmer_id", by.y = "Farmer_ID")
+
+#dta_f_gps$competition <- as.numeric(dta_f_gps$competition > median(dta_f_gps$competition, na.rm = TRUE))
+dta_f_gps$strata2 <- "Control"
+dta_f_gps$strata2[dta_f_gps$strata == "Indirect" | dta_f_gps$strata == "Spillover"] <- "Indirect/Spillover"
+model1 <- (lm(competition ~ strata2, data = dta_f_gps))
+model2 <- (lm(price ~ strata2 + competition, data = dta_f_gps))
+
+a <- coef(model1)[2]  # Path A coefficient
+b <- coef(model2)[3]        # Path B coefficient
+c_prime <- coef(model2)[2]  # Direct effect (Path C')
+
+indirect_effect <- a * b
+total_effect <- c_prime + indirect_effect
+
+# Display the results
+
+
+cat("Indirect Effect: ", indirect_effect, "\n")
+cat("Direct Effect: ", c_prime, "\n")
+cat("Total Effect: ", total_effect, "\n")
+###now do this with path analysis using lavaan
+specmod <- "
+price ~ c*strata2
+competition ~ a*strata2
+price ~ b*competition
+
+ab := a*b
+"
+
+fitmod <- sem(specmod, data = dta_f_gps)
+summary(fitmod, fit.measures = TRUE, rsquare = TRUE)
+
+set.seed(12345)
+# Display the results
+
+
+cat("Indirect Effect: ", indirect_effect, "\n")
+cat("Direct Effect: ", c_prime, "\n")
+cat("Total Effect: ", total_effect, "\n")
+###now do this with path analysis using lavaan
+specmod <- "
+price ~ c*strata2
+competition ~ a*strata2
+price ~ b*competition
+
+ab := a*b
+"
+
+fitmod <- sem(specmod, data = dta_f_gps)
+summary(fitmod, fit.measures = TRUE, rsquare = TRUE)
+
+set.seed(12345)
+
+fitmod <- sem(specmod,bootstrap = 500,se = 'bootstrap',data = dta_f_gps)
+mediation_f <- parameterEstimates(fitmod,  ci=TRUE, level = .95, boot.ci.type ='perc')
+
+

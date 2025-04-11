@@ -885,6 +885,10 @@ Group 1:
  Kyegegwa,
  Kiryandongo,
  and Masindi.
+ The first two are in the southwestern corner of our study area,
+ closer to lake George,
+ while the last two are in the north of our study area,
+ at the north eastern tip of lake Albert.
 \end_layout
 
 \begin_layout Itemize
@@ -897,6 +901,12 @@ Group 2:
 Group 3:
  Farmers residing in two districts (Kabarole and Hoima) with characteristics similar to those of Group 1,
  but where the WFP was not procuring.
+ In particular,
+ Hoima is in the north of our study area,
+ neighboring Kiryandongo,
+ and Masindi.
+ Kabarole is in the southwestern area of our study region,
+ neighboring Kasese and Kyegegwa.
 \end_layout
 
 \begin_layout Standard
@@ -1218,6 +1228,11 @@ status open
 
 \begin_layout Plain Layout
 
+rm(list = ls())
+\end_layout
+
+\begin_layout Plain Layout
+
 pathA <- getwd()
 \end_layout
 
@@ -1277,7 +1292,7 @@ Overall,
 \end_layout
 
 \begin_layout Subsection
-Reliable market access
+Production
 \end_layout
 
 \begin_layout Standard
@@ -1506,12 +1521,794 @@ Control
  acres for control farmers.
 \end_layout
 
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/prod_change.png
+	lyxscale 26
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Production and plot size change over time
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Production-and-plot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Marketing
+\end_layout
+
+\begin_layout Subsubsection
+Market participation
+\end_layout
+
+\begin_layout Standard
+We find that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23A))[2]*100,0))}
+\end_layout
+
+\end_inset
+
+ percent of farmers make at least one sales transaction in the first season of 2023,
+ while this figure is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23B))[2]*100,0))}
+\end_layout
+
+\end_inset
+
+ in the second season of 2023.
+ The top panel of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:market-participation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows how this differs between the three groups of farmers that we have.
+ In both seasons,
+ while about 85 percent of farmers sell to the market in the control areas,
+ this is closer to 95 percent in the Indirect contract group.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+market participation
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:market-participation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{rccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& Control & Spillover & Indirect 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{4}{c}{sold (yes/no) (
+\backslash
+%)} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 1 & 
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23A[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))} & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23A[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Spillover
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))}& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23A[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Indirect
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 2 & 
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23B[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))} & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23B[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Spillover
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))}& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23B[dta_f$strata==
+\begin_inset Quotes erd
+\end_inset
+
+Indirect
+\begin_inset Quotes erd
+\end_inset
+
+]))[2]*100,0))}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+multicolumn{4}{c}{quantity sold (kg)} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 1 &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23A[dta_f$strata == "Control"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23A[dta_f$strata == "Spillover"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23A[dta_f$strata == "Indirect"],
+ na.rm=T),0))} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 2 &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23B[dta_f$strata == "Control"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23B[dta_f$strata == "Spillover"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$VolumeSold_23B[dta_f$strata == "Indirect"],
+ na.rm=T),0))} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+multicolumn{4}{c}{share sold (
+\backslash
+%)} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 1 &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23A[dta_f$strata == "Control"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23A[dta_f$strata == "Spillover"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23A[dta_f$strata == "Indirect"],
+ na.rm=T),0))} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Season 2 &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23B[dta_f$strata == "Control"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23B[dta_f$strata == "Spillover"],
+ na.rm=T),0))} &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{as.numeric(round(mean(dta_f$share_sold_23B[dta_f$strata == "Indirect"],
+ na.rm=T),0))} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\backslash
+hline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We find that,
+ of those that participated in the market,
+ about X percent of the total harvest was sold in the first season of 2023.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+timing of sales
+\end_layout
+
+\begin_layout Standard
+In this part,
+ we restrict attention to non AMS farmers that made transactions between August and December 2023 (following the first season of 2023).
+ Farmers report up to 4 separate transactions,
+ but most (94 percent) report only a single transaction.
+ 
+\end_layout
+
+\begin_layout Standard
+We also look at sales transactions following the second season,
+ with sales taking place between Jan and May 2024
+\end_layout
+
+\begin_layout Standard
+Figure 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/first_seaon.png
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/second_seaon.png
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prices and volumes in each month
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also look at prices over time.
+ Maize prices are highly cyclical,
+ with prices generally reaching a low immediately post harvest when large quantities are simultaneously sold by farmers who are in urgent need of cash,
+ and highest during the lean season.
+ If WFP purchases targets low prices and writes out tenders immediately post harvest (and potentially distributes food aid during the lean season),
+ its activities have counter cyclical effects.
+ However,
+ if WFP faces delays in procurement due to administrative reasons,
+ or if traders speculate on WFPs purchase,
+ price variation could increase.
+ Whether LPR is reduces or exacerbates price seasonality is important as many of the poorest farmers engage in so-called sell low-buy high behavior 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "burke2019sell,10.1093/jae/ejv002"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+TO DO:
+ look at price seasonality.
+\end_layout
+
+\begin_layout Subsubsection
+Commodity flows
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Commodity-flows"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We start by using trader level data to look at commodity flows within maize value chains.
+ In particular,
+ we asked traders about maize purchase and maize sales in both the first and second season of 2023.
+ In particular,
+ we asked how much maize you purchased in the 1st season of 2023 (purchase_2023A) as well as in the 2nd season of 2023 (purchase_2023).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add findings here once we know the variable names
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We assume that all maize that was procured was also sold.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Treatment
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_treat.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Control
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_ctrl.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Commodity flows
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Looking at farmer data,
+ we find that virtually all sales are to traders
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In tried to create Sankey graphs similar to the trader ones,
+ with a single source (farmer) and multiple targets (trader,
+ NGO,
+ WFP,
+ processor,
+ neighbour),
+ but averages did not make sense because of low number of observations in most categories.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notes:
+ One of the ideas we had for identification was the exploit the fact that farmers may not sell to only one trader and maybe some would sell to WFP traders and normal traders.
+ Unfortunately,
+ most farmers report only a single transaction;
+ only about 130 farmers report more than one transaction and it would be unlikely that all these farmers are selling to a WFP trader in at least one occasion.
+ I ran a quick simulation to what the MDE for a price effect would look like and it seems we would only have reasonable power for effects that are larger than 16 percent,
+ so I parked this idea for now...
+\end_layout
+
 \begin_layout Subsection
 Inclusivity
 \end_layout
 
 \begin_layout Standard
-We also asked traders what percentage of buyers are women.
+We also asked traders what percentage of sellers are women.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1541,7 +2338,7 @@ placement document
 alignment center
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1584,9 +2381,14 @@ name "fig:Gender-of-farmer"
 \end_layout
 
 \begin_layout Standard
-Let us also have a quick look at prices in the different groups using farmer level data.
- Let us start by looking at prices received during transactions in the first season by interacting gender with group.
- We start with simple regressions.
+Let's quickly review the pricing across various groups using data from individual farmers for sales in the first season of 2023.
+ We'll begin by examining the prices received during transactions in the first season by analyzing the interaction between gender and group through simple regressions.
+ The results indicate a significant impact on the prices farmers receive.
+ However,
+ we observe no varying effects when three characteristics are combined with the treatment variable,
+ suggesting that concerns about this policy benefiting only male farmers or bypassing the youth are unwarranted.
+ At the same time,
+ it appears that the policy's main goal of targeting smallholder farmers has not been fully achieved.
 \end_layout
 
 \begin_layout Standard
@@ -1598,6 +2400,28 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Note on sample size:
+ these are transaction level data.
+ Not all farmers may transact in the first season of 2023 (see also Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:market-participation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Furthermore,
+ we restrict the attention to transactions between the months of August to December of 2023.
+ Finally,
+ we also removed some outliers.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1642,7 +2466,7 @@ placement document
 alignment center
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1713,7 +2537,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1859,53 +2683,6 @@ Sexpr{round(t.test(dta_t$competition~dta_t$strata)$p.value,3)}
 \end_inset
 
 ).
- If we convert this variable to a binary indicator that differentiates areas with higher than median competition from those with lower than median competition,
- we find that 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(all$competition[all$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T)*100,0)}
-\end_layout
-
-\end_inset
-
- percent of farmers in control areas indicate they work in high competition settings,
- while this percentage increases to 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(all$competition[all$strata != 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T)*100,0)}
-\end_layout
-
-\end_inset
-
- in areas where the policy is implemented.
  This seems to suggest that the policy is positively related to competition among aggregators.
  
 \end_layout
@@ -1930,8 +2707,10 @@ Mediation analysis basically involves the joint estimation of two regression equ
 \end_layout
 
 \begin_layout Standard
-Doing so,
- we find a total effect of 
+We again perform such an analysis first using only trader level data.
+ In particular,
+ using farm gate prices that traders report to be paying to farmers,
+ we find a total effect of the policy of UGX 
 \begin_inset ERT
 status open
 
@@ -1939,7 +2718,7 @@ status open
 
 
 \backslash
-Sexpr{round(mediation[1,5]+mediation[7,5],2)}
+Sexpr{round(mediation_t[1,5]+mediation_t[7,5],2)}
 \end_layout
 
 \end_inset
@@ -1952,7 +2731,56 @@ status open
 
 
 \backslash
-Sexpr{round(mediation[1,5],2)}
+Sexpr{round(mediation_t[1,5],2)}
+\end_layout
+
+\end_inset
+
+ and a negligible mediated effect (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mediation_t[7,5],2)}
+\end_layout
+
+\end_inset
+
+) which is not statistically different from zero.
+ 
+\end_layout
+
+\begin_layout Standard
+We repeat this analysis by combining trader level and farmer level data.
+ To do so,
+ we need to create a measure of competition at farmer level.
+ We do this by calculating the average of the responses provided by the traders,
+ and use as weights the inverse distance between the farmer and the trader.
+ Running the analysis then at the farmer level gives us a total effect of UGX
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mediation_f[1,5]+mediation_f[7,5],2)}
+\end_layout
+
+\end_inset
+
+ that can be decomposed into a direct effect of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mediation_f[1,5],2)}
 \end_layout
 
 \end_inset
@@ -1965,249 +2793,14 @@ status open
 
 
 \backslash
-Sexpr{round(mediation[7,5],2)}
+Sexpr{round(mediation_f[7,5],2)}
 \end_layout
 
 \end_inset
 
 .
- Both these effects are significance at the 5 percent significance level.
+ In this case both direct and indirect effects are significantly different from zero.
  These findings indicate that the intervention not only directly increases the price received by farmers but also does so indirectly by enhancing competition among traders.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Can we also repeat such an analysis using farmer level data?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Sales over time
-\end_layout
-
-\begin_layout Standard
-In this part,
- we restrict attention to non AMS farmers that made transactions between August and December 2023 (following the first season of 2023).
- Farmers report up to 4 separate transactions,
- but most (94 percent) report only a single transaction.
- 
-\end_layout
-
-\begin_layout Standard
-We also look at sales transactions following the second season,
- with sales taking place between Jan and May 2024
-\end_layout
-
-\begin_layout Standard
-Figure 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/first_seaon.png
-	lyxscale 20
-	scale 30
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/second_seaon.png
-	lyxscale 20
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Prices and volumes in each month
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We also look at prices over time.
- Maize prices are highly cyclical,
- with prices generally reaching a low immediately post harvest when large quantities are simultaneously sold by farmers who are in urgent need of cash,
- and highest during the lean season.
- If WFP purchases targets low prices and writes out tenders immediately post harvest (and potentially distributes food aid during the lean season),
- its activities have counter cyclical effects.
- However,
- if WFP faces delays in procurement due to administrative reasons,
- or if traders speculate on WFPs purchase,
- price variation could increase.
- Whether LPR is reduces or exacerbates price seasonality is important as many of the poorest farmers engage in so-called sell low-buy high behavior 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "burke2019sell,10.1093/jae/ejv002"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-TO DO:
- look at price seasonality.
-\end_layout
-
-\begin_layout Subsubsection
-Commodity flows
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Commodity-flows"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We start by using trader level data to look at commodity flows within maize value chains.
- In particular,
- we asked traders about maize purchase and maize sales in both the first and second season of 2023.
- In particular,
- we asked how much maize you purchased in the 1st season of 2023 (purchase_2023A) as well as in the 2nd season of 2023 (purchase_2023).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add findings here once we know the variable names
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We assume that all maize that was procured was also sold.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment center
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-Treatment
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_treat.png
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Control
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_ctrl.png
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Commodity flows
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Looking at farmer data,
- we find that virtually all sales are to traders
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-In tried to create Sankey graphs similar to the trader ones,
- with a single source (farmer) and multiple targets (trader,
- NGO,
- WFP,
- processor,
- neighbour),
- but averages did not make sense because of low number of observations in most categories.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-Notes:
- One of the ideas we had for identification was the exploit the fact that farmers may not sell to only one trader and maybe some would sell to WFP traders and normal traders.
- Unfortunately,
- most farmers report only a single transaction;
- only about 130 farmers report more than one transaction and it would be unlikely that all these farmers are selling to a WFP trader in at least one occasion.
- I ran a quick simulation to what the MDE for a price effect would look like and it seems we would only have reasonable power for effects that are larger than 16 percent,
- so I parked this idea for now...
 \end_layout
 
 \begin_layout Subsubsection
