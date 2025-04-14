@@ -193,6 +193,8 @@ dta_f$acres_23A <- rowSums(cbind(dta_f$q38_1,dta_f$q38_2,dta_f$q38_3,dta_f$q38_4
 dta_f$production_23A <- rowSums(cbind(as.numeric(dta_f$q39_1),dta_f$q39_2,dta_f$q39_3,dta_f$q39_4),na.rm=TRUE)*as.numeric(dta_f$q203b)
 dta_f$acres_23A[dta_f$q35h!="Yes"]<- NA
 dta_f$production_23A[dta_f$q35h!="Yes"]<- NA
+dta_f$production_23A[dta_f$production_23A>50000] <- NA
+dta_f$acres_23A[dta_f$acres_23A > 40 ]<- NA
 dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot1$strata <- rownames(dotplot1)
 names(dotplot1) <- c("plotsize","share","strata")
@@ -202,6 +204,8 @@ dta_f$acres_23B <- rowSums(cbind(dta_f$q62_1,dta_f$q62_2,dta_f$q62_3,dta_f$q62_4
 dta_f$production_23B <- rowSums(cbind(as.numeric(dta_f$q63_1),dta_f$q63_2,dta_f$q63_3,dta_f$q63_4,dta_f$q63_5),na.rm=TRUE)*as.numeric(dta_f$q203b)
 dta_f$acres_23B[dta_f$q59!="Yes"] <- NA
 dta_f$production_23B[dta_f$q59!="Yes"] <- NA
+dta_f$production_23B[dta_f$production_23B>50000] <- NA
+dta_f$acres_23B[dta_f$acres_23B > 40 ]<- NA
 dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q59=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot2$strata <- rownames(dotplot2)
 names(dotplot2) <- c("plotsize","share","strata")
@@ -209,11 +213,17 @@ dotplot2$season <- "23B"
 
 
 dta_f$acres_24A <- rowSums(cbind(as.numeric(dta_f$q85_1),as.numeric(dta_f$q85_2),as.numeric(dta_f$q85_3),as.numeric(dta_f$q85_4)),na.rm=TRUE)
+dta_f$production_24A <- rowSums(cbind(as.numeric(dta_f$q86_1),as.numeric(dta_f$q86_2),as.numeric(dta_f$q86_3),as.numeric(dta_f$q86_4)),na.rm=TRUE)*as.numeric(dta_f$q203b)
 dta_f$acres_24A[dta_f$q82!="Yes"] <- NA
+dta_f$production_24A[dta_f$q82!="Yes"] <- NA
+dta_f$production_24A[dta_f$production_24A>50000] <- NA
+dta_f$acres_24A[dta_f$acres_24A > 40 ]<- NA
 dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean, na.rm=TRUE),tapply((dta_f$q82=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
 dotplot3$strata <- rownames(dotplot3)
 names(dotplot3) <- c("plotsize","share","strata")
 dotplot3$season <- "24A"
+
+
 
 alldot <- rbind(dotplot1,dotplot2,dotplot3)
 
@@ -225,8 +235,7 @@ alldot <- rbind(dotplot1,dotplot2,dotplot3)
 p <- ggplot(alldot, aes(x = share, y = reorder(season, -share))) +
 	  geom_point(aes(color = strata, size = plotsize), show.legend = TRUE) +
 	    scale_color_manual(values = c("Control" = "red", "Spillover" = "blue", "Indirect" = "green")) +
-	     scale_size(range = c(3,12))+ labs(x = "Share of Farmers Selling (%)", y = "Season",
-		          title = "Share of Farmers Selling and Average Plot Size by Season and Group") +
+	     scale_size(range = c(3,12))+ labs(x = "Share of Farmers Selling (%)", y = "Season") +
   theme_minimal() +
     theme(panel.grid.major.x = element_blank(),
 	          panel.grid.minor.x = element_blank(),
@@ -418,18 +427,82 @@ dta_f$share_sold_23B[dta_f$share_sold_23B>100] <- 100
 
 
 ### delta production
-dta_f$delta_production <- dta_f$production_23B - dta_f$production_23A
+dta_f$delta_production_1 <- dta_f$production_23B - dta_f$production_23A
+dta_f$delta_production_2 <- dta_f$production_24A - dta_f$production_23B
 #delta area
-dta_f$delta_area <- dta_f$acres_23B - dta_f$acres_23A
+dta_f$delta_area_1 <- dta_f$acres_23B - dta_f$acres_23A
+dta_f$delta_area_2 <- dta_f$acres_24A - dta_f$acres_23B
+# Create summary dataframe with means per strata
+dta_summary <- dta_f %>%
+  group_by(strata) %>%
+  summarise(
+    mean_area_1 = mean(delta_area_1, na.rm = TRUE),
+    mean_production_1 = mean(delta_production_1, na.rm = TRUE), 
+    mean_area_2 = mean(delta_area_2, na.rm = TRUE),
+    mean_production_2 = mean(delta_production_2, na.rm = TRUE)  
+  )
 
-# Create the plot
-ggplot(dta_f, aes(x = delta_area, y = delta_production, color = strata)) +
-  geom_point() +  # This adds the scatter plot points
-  labs(x = "area", y = "production", title = "Extensive and intensive change in production") +
-  coord_cartesian(xlim = c(-5, 5), ylim = c(-5000, 5000)) +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +  # Horizontal line at y = 0
-  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +  # Vertical line at x = 0
-  theme_minimal()   # Adds a minimal theme to clean up non-data ink
+# Plot only the group averages
+ggplot(dta_summary, aes(x = mean_area_1, y = mean_production_1, color = strata)) +
+  geom_point(shape = 18, size = 4, stroke = 1.5) +  # Only average points
+  labs(x = "change in plot size", y = "change in production", title = "Intensive/extensive production change") +
+  coord_cartesian(xlim = c(-0.5, 0.5), ylim = c(-300, 300)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  annotate("text", x = 0.25, y = 270, label = "Extensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y =270, label = "Intensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = 0.25, y = -270, label = "Intensive production decrease", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y = -270, label = "Extensive production decrease", size = 4, hjust = 0.5) +
+  theme_minimal()
+
+ggsave("prod_change_1.png", plot = last_plot(), width = 8, height = 6, dpi = 300)
+# Plot only the group averages
+ggplot(dta_summary, aes(x = mean_area_2, y = mean_production_2, color = strata)) +
+  geom_point(shape = 18, size = 4, stroke = 1.5) +  # Only average points
+  labs(x = "change in plot size", y = "change in production", title = "Intensive/extensive production change") +
+  coord_cartesian(xlim = c(-0.5, 0.5), ylim = c(-3000, 3000)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  annotate("text", x = 0.25, y = 270, label = "Extensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y =270, label = "Intensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = 0.25, y = -270, label = "Intensive production decrease", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y = -270, label = "Extensive production decrease", size = 4, hjust = 0.5) +
+  theme_minimal()
+
+ggsave("prod_change_2.png", plot = last_plot(), width = 8, height = 6, dpi = 300)
+
+
+
+# Reshape to long format (manually match names to avoid confusion)
+dta_summary_long <- dta_summary %>%
+  select(strata, 
+         area_1 = mean_area_1, production_1 = mean_production_1,
+         area_2 = mean_area_2, production_2 = mean_production_2) %>%
+  pivot_longer(
+    cols = -strata,
+    names_to = c("metric", "period"),
+    names_sep = "_",
+    values_to = "value"
+  ) %>%
+  pivot_wider(
+    names_from = metric,
+    values_from = value
+  )
+
+# Plot
+ggplot(dta_summary_long, aes(x = area, y = production, color = strata, shape = period)) +
+  geom_point(size = 4, stroke = 1.5) +
+  labs(x = "Change in plot size", y = "Change in production", title = "Intensive/extensive production change") +
+  coord_cartesian(xlim = c(-0.5, 0.5), ylim = c(-2000, 2000)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  annotate("text", x = 0.25, y = 270, label = "Extensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y = 270, label = "Intensive production increase", size = 4, hjust = 0.5) +
+  annotate("text", x = 0.25, y = -270, label = "Intensive production decrease", size = 4, hjust = 0.5) +
+  annotate("text", x = -0.25, y = -270, label = "Extensive production decrease", size = 4, hjust = 0.5) +
+  scale_shape_manual(values = c("1" = 17, "2" = 19), labels = c("23A–23B", "23B–24A")) +
+  theme_minimal()
+ggsave("prod_change_both.png", plot = last_plot(), width = 8, height = 6, dpi = 300)
 ### gender analysis
 ### merge in gender in transactions from first season of 2023
 transactions_23A <- merge(transactions_23A,dta_f[c("farmer_id","q8","q10","q35b")],by.x = "FarmerID", by.y = "farmer_id")
@@ -948,9 +1021,9 @@ total_effect <- c_prime + indirect_effect
 # Display the results
 
 
-cat("Indirect Effect: ", indirect_effect, "\n")
-cat("Direct Effect: ", c_prime, "\n")
-cat("Total Effect: ", total_effect, "\n")
+#cat("Indirect Effect: ", indirect_effect, "\n")
+#cat("Direct Effect: ", c_prime, "\n")
+#cat("Total Effect: ", total_effect, "\n")
 ###now do this with path analysis using lavaan
 specmod <- "
 price ~ c*strata2
@@ -967,9 +1040,9 @@ set.seed(12345)
 # Display the results
 
 
-cat("Indirect Effect: ", indirect_effect, "\n")
-cat("Direct Effect: ", c_prime, "\n")
-cat("Total Effect: ", total_effect, "\n")
+#cat("Indirect Effect: ", indirect_effect, "\n")
+#cat("Direct Effect: ", c_prime, "\n")
+#cat("Total Effect: ", total_effect, "\n")
 ###now do this with path analysis using lavaan
 specmod <- "
 price ~ c*strata2
@@ -987,4 +1060,10 @@ set.seed(12345)
 fitmod <- sem(specmod,bootstrap = 500,se = 'bootstrap',data = dta_f_gps)
 mediation_f <- parameterEstimates(fitmod,  ci=TRUE, level = .95, boot.ci.type ='perc')
 
+dta_t$purchase_23A <- dta_t$purchase_2023a/1000
+dta_t$purchase_23B <- dta_t$purchase_2023b/1000
+dta_t$purchase_23A[dta_t$purchase_23A > 1000] <- NA
+dta_t$purchase_23B[dta_t$purchase_23B > 1000] <- NA
 
+tapply(dta_t$purchase_23A, dta_t$strata, mean, na.rm=T)
+tapply(dta_t$purchase_23B, dta_t$strata, mean, na.rm=T)

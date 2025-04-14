@@ -1285,19 +1285,14 @@ source(paste(pathA,
 
 \end_layout
 
-\begin_layout Standard
-Overall,
- if there are no real difference between the first season of 2023 and the second season of 2023,
- we will report outcomes for season 2023.
-\end_layout
-
 \begin_layout Subsection
 Production
 \end_layout
 
 \begin_layout Standard
-One of the main reasons for indirect conditional contacts (and local and regional procurement modalities more in general) is the creation of reliable markets.
- Output market uncertainty has been found to be a key constraint to agricultural intensification and smallholder market participation,
+One of the main reasons why WFP initiated the indirect conditional contacts modality (and local and regional procurement modalities more in general) is assumption that the entry of a large credible buyer creates a reliable and predictable market.
+ Indeed,
+ output market uncertainty has been found to be a key constraint to agricultural intensification and smallholder market participation,
  which in turn discourages investment in commercial agriculture 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1307,23 +1302,18 @@ literal "false"
 \end_inset
 
 .
+ In this section,
+ we therefor look at some production related outcomes.
  
 \end_layout
 
 \begin_layout Standard
-In this section,
- we look at some production related outcomes.
- For instance,
- we test farmers that are likely to be affected by the policy,
+We start by testing if farmers that are likely to be affected by the policy,
  either directly or indirectly,
  are more likely to cultivate maize,
  and if so,
- if there is a difference in acreage.
- We also look at production and productivity.
-\end_layout
-
-\begin_layout Standard
-Figure 
+ if they allocate a larger area to maize production.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Production"
@@ -1522,7 +1512,57 @@ Control
 \end_layout
 
 \begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Production-and-plot"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ incorporates production into the analysis.
+ The vertical axis shows changes in production over time by treatment group.
+ Since we have data for three seasons,
+ we examine two changes:
+ from the first to the second season of 2023 (represented by circles),
+ and from the second season of 2023 to the first season of 2024 (represented by triangles).
+\end_layout
+
+\begin_layout Standard
+Between the first and second seasons of 2023 (23A–23B),
+ all three treatment groups—
+Control,
+ Indirect,
+ and Spillover—
+displayed minimal changes in both plot size and production.
+ This stability likely reflects a period of limited market disruption and consistent expectations regarding input availability and output markets.
+ The only exception is the Indirect group,
+ which saw a modest production increase despite a slight contraction in land under cultivation,
+ suggesting gains in productivity that may reflect improved market access or input use tied to contract expectations.
+\end_layout
+
+\begin_layout Standard
+However,
+ the transition to the first season of 2024 (23B–24A) marks a notable downturn.
+ Across all groups,
+ production declined substantially—
+by roughly 1 to 1.5 tons on average—
+with variation in the magnitude of impact.
+ The Indirect group,
+ which had expanded land use in the prior season,
+ experienced the sharpest drop in production.
+ Conversely,
+ the Spillover group,
+ cultivating smaller plots,
+ registered the smallest declines.
+ This spatial pattern suggests that exposure to procurement-linked incentives may have initially encouraged expansion,
+ but also left some farmers more vulnerable to subsequent shocks,
+ such as adverse weather,
+ rising input costs,
+ or market saturation.
 \end_layout
 
 \begin_layout Standard
@@ -1531,12 +1571,12 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/prod_change.png
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/prod_change_both.png
 	lyxscale 26
 	scale 50
 
@@ -1564,13 +1604,319 @@ name "fig:Production-and-plot"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The presence of a reliable market does not only affect producers.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "van2021leading"
+literal "false"
+
+\end_inset
+
+ find that Foreign Direct Investment in various large dairy processing plants in southwester Uganda created a reliable market for raw milk that led to upgrading across the entire value chain.
+ Our stack survey allows us to also look at activities at the trader level.
+ We look at the number of traders that are active,
+ as well as how much maize they process.
+\end_layout
+
+\begin_layout Standard
+To investigate the impact on competition,
+ we asked how many other maize buyer/traders operate in the areas where the trader usually buys maize.
+ We find that on average,
+ there are about 
+\begin_inset ERT
+status open
+
 \begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$competition[dta_t$strata == 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ other traders working in the area.
+ This is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$competition[dta_t$strata != 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ in areas where the policy is implemented,
+ and the difference is significant (p-value = 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(t.test(dta_t$competition~dta_t$strata)$p.value,3)}
+\end_layout
+
+\end_inset
+
+).
+ This seems to suggest that the policy is positively related to competition among aggregators.
+ 
+\end_layout
+
+\begin_layout Standard
+We also test the policy does not only attract more traders,
+ but whether traders also process higher volumes.
+ We find that in the first season of 2023,
+ the average trader in the control group traders about 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$purchase_23A[dta_t$strata == 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ metric tons of maize.
+ In the indirect/spillover group,
+ traders process about 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$purchase_23A[dta_t$strata != 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ metric tons of maize.
+ In the second season of 2023,
+ the figures are 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$purchase_23B[dta_t$strata == 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ metric tons and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{round(mean(dta_t$purchase_23B[dta_t$strata != 
+\begin_inset Quotes eld
+\end_inset
+
+Control
+\begin_inset Quotes erd
+\end_inset
+
+],
+ na.rm=T),2)}
+\end_layout
+
+\end_inset
+
+ metric tons respectively.
+ This suggests that the policy does not only draw traders into the market,
+ it may also incentivize greater investment in aggregation,
+ processing,
+ or transport capacity,
+ thereby amplifying market throughput.
+ The growing divergence in trade volumes across seasons reinforces the idea that WFP’s procurement modality can stimulate scaling behaviors among intermediaries,
+ potentially improving efficiency in the maize value chain.
+\end_layout
+
+\begin_layout Subsection
+Commodity flows
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Commodity-flows"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We start by using trader level data to look at commodity flows within maize value chains.
+ In particular,
+ we asked traders about maize purchase and maize sales in both the first and second season of 2023.
+ In particular,
+ we asked how much maize they purchased in the 1st season of 2023 (purchase_2023A) as well as in the 2nd season of 2023 (purchase_2023).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add findings here once we know the variable names
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We assume that all maize that was procured was also sold.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+Treatment
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_treat.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Control
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_ctrl.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Commodity flows
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Looking at farmer data,
+ we find that virtually all sales are to traders
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In tried to create Sankey graphs similar to the trader ones,
+ with a single source (farmer) and multiple targets (trader,
+ NGO,
+ WFP,
+ processor,
+ neighbour),
+ but averages did not make sense because of low number of observations in most categories.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notes:
+ One of the ideas we had for identification was the exploit the fact that farmers may not sell to only one trader and maybe some would sell to WFP traders and normal traders.
+ Unfortunately,
+ most farmers report only a single transaction;
+ only about 130 farmers report more than one transaction and it would be unlikely that all these farmers are selling to a WFP trader in at least one occasion.
+ I ran a quick simulation to what the MDE for a price effect would look like and it seems we would only have reasonable power for effects that are larger than 16 percent,
+ so I parked this idea for now...
 \end_layout
 
 \begin_layout Subsection
@@ -1633,7 +1979,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2183,126 +2529,6 @@ TO DO:
  look at price seasonality.
 \end_layout
 
-\begin_layout Subsubsection
-Commodity flows
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Commodity-flows"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We start by using trader level data to look at commodity flows within maize value chains.
- In particular,
- we asked traders about maize purchase and maize sales in both the first and second season of 2023.
- In particular,
- we asked how much maize you purchased in the 1st season of 2023 (purchase_2023A) as well as in the 2nd season of 2023 (purchase_2023).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add findings here once we know the variable names
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We assume that all maize that was procured was also sold.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment center
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-Treatment
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_treat.png
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Control
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/flow_ctrl.png
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Commodity flows
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Looking at farmer data,
- we find that virtually all sales are to traders
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-In tried to create Sankey graphs similar to the trader ones,
- with a single source (farmer) and multiple targets (trader,
- NGO,
- WFP,
- processor,
- neighbour),
- but averages did not make sense because of low number of observations in most categories.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Notes:
- One of the ideas we had for identification was the exploit the fact that farmers may not sell to only one trader and maybe some would sell to WFP traders and normal traders.
- Unfortunately,
- most farmers report only a single transaction;
- only about 130 farmers report more than one transaction and it would be unlikely that all these farmers are selling to a WFP trader in at least one occasion.
- I ran a quick simulation to what the MDE for a price effect would look like and it seems we would only have reasonable power for effects that are larger than 16 percent,
- so I parked this idea for now...
-\end_layout
-
 \begin_layout Subsection
 Inclusivity
 \end_layout
@@ -2615,75 +2841,8 @@ The increase in priced may be a direct effect of increased prices and quantities
  However,
  there are many other indirect pathways through which the policy may indirectly increase prices.
  One such indirect pathway would be that the entry of a large buyer leads to market entry by traders.
+ We already established in section X that the policy seems positively related to competition.
  The increased competition among traders could then be responsible for (part of the ) price increase at the farmer level.
- 
-\end_layout
-
-\begin_layout Standard
-To investigate this potential impact pathway,
- we asked how many other maize buyer/traders operate in the areas where the trader usually buys maize.
- We find that on average,
- there are about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$competition[dta_t$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- other traders working in the area.
- This is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$competition[dta_t$strata != 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- in areas where the policy is implemented,
- and the difference is significant (p-value = 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(t.test(dta_t$competition~dta_t$strata)$p.value,3)}
-\end_layout
-
-\end_inset
-
-).
- This seems to suggest that the policy is positively related to competition among aggregators.
  
 \end_layout
 
