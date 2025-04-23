@@ -195,10 +195,14 @@ dta_f$acres_23A[dta_f$q35h!="Yes"]<- NA
 dta_f$production_23A[dta_f$q35h!="Yes"]<- NA
 dta_f$production_23A[dta_f$production_23A>50000] <- NA
 dta_f$acres_23A[dta_f$acres_23A > 40 ]<- NA
-dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
+dta_f$yield_23A <- dta_f$production_23A/dta_f$acres_23A
+dta_f$yield_23A[dta_f$yield_23A > 3500] <- NA
+
+dotplot1 <- data.frame(cbind(tapply(dta_f$acres_23A,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q35h=="Yes"),dta_f$strata,mean, na.rm=TRUE),tapply(dta_f$production_23A,dta_f$strata,mean, na.rm=TRUE), tapply(dta_f$yield_23A,dta_f$strata,mean, na.rm=TRUE)))
 dotplot1$strata <- rownames(dotplot1)
-names(dotplot1) <- c("plotsize","share","strata")
+names(dotplot1) <- c("plotsize","share","production","yield","strata")
 dotplot1$season <- "23A"
+
 dta_f$q63_2[dta_f$q63_2 > 100] <- NA
 dta_f$acres_23B <- rowSums(cbind(dta_f$q62_1,dta_f$q62_2,dta_f$q62_3,dta_f$q62_4,dta_f$q62_5),na.rm=TRUE)
 dta_f$production_23B <- rowSums(cbind(as.numeric(dta_f$q63_1),dta_f$q63_2,dta_f$q63_3,dta_f$q63_4,dta_f$q63_5),na.rm=TRUE)*as.numeric(dta_f$q203b)
@@ -206,9 +210,11 @@ dta_f$acres_23B[dta_f$q59!="Yes"] <- NA
 dta_f$production_23B[dta_f$q59!="Yes"] <- NA
 dta_f$production_23B[dta_f$production_23B>50000] <- NA
 dta_f$acres_23B[dta_f$acres_23B > 40 ]<- NA
-dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q59=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
+dta_f$yield_23B <- dta_f$production_23B/dta_f$acres_23B
+dta_f$yield_23B[dta_f$yield_23B > 3500] <- NA
+dotplot2 <- data.frame(cbind(tapply(dta_f$acres_23B,dta_f$strata,mean,na.rm=TRUE),tapply((dta_f$q59=="Yes"),dta_f$strata,mean, na.rm=TRUE), tapply(dta_f$production_23B,dta_f$strata,mean, na.rm=TRUE),tapply(dta_f$yield_23B,dta_f$strata,mean, na.rm=TRUE)))
 dotplot2$strata <- rownames(dotplot2)
-names(dotplot2) <- c("plotsize","share","strata")
+names(dotplot2) <- c("plotsize","share","production","yield","strata")
 dotplot2$season <- "23B"
 
 
@@ -218,9 +224,11 @@ dta_f$acres_24A[dta_f$q82!="Yes"] <- NA
 dta_f$production_24A[dta_f$q82!="Yes"] <- NA
 dta_f$production_24A[dta_f$production_24A>50000] <- NA
 dta_f$acres_24A[dta_f$acres_24A > 40 ]<- NA
-dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean, na.rm=TRUE),tapply((dta_f$q82=="Yes"),dta_f$strata,mean, na.rm=TRUE)))
+dta_f$yield_24A <- dta_f$production_24A/dta_f$acres_24A
+dta_f$yield_24A[dta_f$yield_24A > 3500] <- NA
+dotplot3 <- data.frame(cbind(tapply(dta_f$acres_24A,dta_f$strata,mean, na.rm=TRUE),tapply((dta_f$q82=="Yes"),dta_f$strata,mean, na.rm=TRUE),tapply(dta_f$production_24A,dta_f$strata,mean, na.rm=TRUE),tapply(dta_f$yield_24A,dta_f$strata,mean, na.rm=TRUE)))
 dotplot3$strata <- rownames(dotplot3)
-names(dotplot3) <- c("plotsize","share","strata")
+names(dotplot3) <- c("plotsize","share","production","yield","strata")
 dotplot3$season <- "24A"
 
 
@@ -419,7 +427,10 @@ dta_f <- merge(dta_f,sold_first_season, by.x = "farmer_id",by.y="FarmerID", all.
 dta_f <- merge(dta_f,sold_second_season, by.x = "farmer_id",by.y="FarmerID", all.x = TRUE)
 dta_f$VolumeSold_23A[dta_f$market_participation_23A == 0] <- 0
 dta_f$VolumeSold_23B[dta_f$market_participation_23B == 0] <- 0
-#### we also need to know production
+dta_f$VolumeSold_23A[dta_f$VolumeSold_23A > 50000] <- NA
+dta_f$VolumeSold_23B[dta_f$VolumeSold_23B > 20000] <- NA
+
+#### express as percentage of production
 dta_f$share_sold_23A <- dta_f$VolumeSold_23A/dta_f$production_23A*100
 dta_f$share_sold_23B <- dta_f$VolumeSold_23B/dta_f$production_23B*100
 dta_f$share_sold_23A[dta_f$share_sold_23A>100] <- 100
@@ -1067,3 +1078,67 @@ dta_t$purchase_23B[dta_t$purchase_23B > 1000] <- NA
 
 tapply(dta_t$purchase_23A, dta_t$strata, mean, na.rm=T)
 tapply(dta_t$purchase_23B, dta_t$strata, mean, na.rm=T)
+
+dta_f$improved_seed <- dta_f$q45 %in% c("Bazooka","DeKalb (DK) Monsanto","KH series","Longe 10H","Longe 10R/Kayongo-go","Longe 4 (OPV)","Longe 5 (nalongo-OPV)","Longe 5D (OPV)","Longe 6H", "Longe 7H","Longe 7R/Kayongo-go","MM3 (OPV)","Other hybrid","Other OPV", "Panner", "UH5051 (Gagawala)")
+
+dta_f$improved_seed[dta_f$q45 =="" | dta_f$q45 =="Con't know" ] <- NA
+dta_f$improved_seed[dta_f$q46 ==""] <- NA
+dta_f$improved_seed[dta_f$q46 =="Local Market"] <- FALSE
+dta_f$improved_seed[dta_f$q46 =="Other farmer/neigbor"] <- FALSE
+dta_f$improved_seed[dta_f$q46 =="Own stocks"] <- FALSE
+tapply(dta_f$improved_seed,dta_f$strata, mean,na.rm=T)
+
+#now for fertilizer
+dta_f$organic <- dta_f$q51 == "Yes"
+dta_f$organic[dta_f$q51 == "" | dta_f$q51 == "Don't know"] <- NA
+tapply(dta_f$organic, dta_f$strata, mean, na.rm=T)
+#now for dap
+dta_f$dap <- dta_f$q52 == "Yes"
+dta_f$dap[dta_f$q52 == "" | dta_f$q52 == "Don't know"] <- NA
+tapply(dta_f$dap, dta_f$strata, mean, na.rm=T)
+#now for urea
+dta_f$urea <- dta_f$q53 == "Yes"
+dta_f$urea[dta_f$q53 == "" | dta_f$q53 == "Don't know"] <- NA
+tapply(dta_f$urea, dta_f$strata, mean, na.rm=T)
+#now for pesticides
+dta_f$pesticides <- dta_f$q55 == "Yes"
+dta_f$pesticides[dta_f$q55 == "" | dta_f$q55 == "Don't know"] <- NA
+tapply(dta_f$pesticides, dta_f$strata, mean, na.rm=T)
+
+# Variables of interest
+adoption_vars <- c("improved_seed", "organic", "dap", "urea", "pesticides")
+
+# Reshape and compute mean usage per strata and input
+plot_data <- dta_f %>%
+  select(strata, all_of(adoption_vars)) %>%
+  pivot_longer(cols = all_of(adoption_vars), names_to = "input", values_to = "used") %>%
+  group_by(strata, input) %>%
+  summarize(mean_use = mean(used, na.rm = TRUE), .groups = "drop")
+
+# Reorder input levels by overall mean use
+plot_data <- plot_data %>%
+  group_by(input) %>%
+  mutate(overall_mean = mean(mean_use, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(input = reorder(input, overall_mean))
+
+# Then re-run the same ggplot code
+ggplot(plot_data, aes(x = mean_use, y = input, color = strata)) +
+  geom_point(size = 3) +
+  labs(
+    x = "Proportion of farmers using input",
+    y = "Input",
+  color = "Strata"
+  ) +
+  theme_minimal()
+
+plot_data_adoption <- plot_data
+ggsave("adoption.png", plot = last_plot(), width = 8, height = 2, dpi = 300)
+
+### formal analysis - look at difference between indirect and spillover withing farmer pair
+dta_f$pairFE <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 1)  
+dta_f$treat <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 2) 
+
+dta_f <- merge(dta_f, prices_23A, by.x = "farmer_id", by.y = "Farmer_ID", all.x=T)
+summary(lm(price ~ treat + pairFE,dta_f[dta_f$treat !="C",]))
+summary(lm(price ~ treat,dta_f[dta_f$treat !="C",]))
