@@ -1081,7 +1081,7 @@ tapply(dta_t$purchase_23B, dta_t$strata, mean, na.rm=T)
 
 dta_f$improved_seed <- dta_f$q45 %in% c("Bazooka","DeKalb (DK) Monsanto","KH series","Longe 10H","Longe 10R/Kayongo-go","Longe 4 (OPV)","Longe 5 (nalongo-OPV)","Longe 5D (OPV)","Longe 6H", "Longe 7H","Longe 7R/Kayongo-go","MM3 (OPV)","Other hybrid","Other OPV", "Panner", "UH5051 (Gagawala)")
 
-dta_f$improved_seed[dta_f$q45 =="" | dta_f$q45 =="Con't know" ] <- NA
+dta_f$improved_seed[dta_f$q45 =="" | dta_f$q45 =="Don't know" ] <- NA
 dta_f$improved_seed[dta_f$q46 ==""] <- NA
 dta_f$improved_seed[dta_f$q46 =="Local Market"] <- FALSE
 dta_f$improved_seed[dta_f$q46 =="Other farmer/neigbor"] <- FALSE
@@ -1135,10 +1135,283 @@ ggplot(plot_data, aes(x = mean_use, y = input, color = strata)) +
 plot_data_adoption <- plot_data
 ggsave("adoption.png", plot = last_plot(), width = 8, height = 2, dpi = 300)
 
-### formal analysis - look at difference between indirect and spillover withing farmer pair
-dta_f$pairFE <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 1)  
-dta_f$treat <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 2) 
 
-dta_f <- merge(dta_f, prices_23A, by.x = "farmer_id", by.y = "Farmer_ID", all.x=T)
-summary(lm(price ~ treat + pairFE,dta_f[dta_f$treat !="C",]))
-summary(lm(price ~ treat,dta_f[dta_f$treat !="C",]))
+
+# make my own food insecurity scale
+ 
+dta_f$food_insecurity  <- "food secure"
+dta_f$food_insecurity[dta_f$q233 == "Yes" & dta_f$q234 =="Yes"  & dta_f$q235 =="Yes"  ] <- "mildly food insecure"
+dta_f$food_insecurity[dta_f$q233 == "Yes" & dta_f$q234 =="Yes"  & dta_f$q235 =="Yes"  & dta_f$q236 =="Yes"  & dta_f$q237 =="Yes"  & dta_f$q238 =="Yes"  ] <- "moderately food insecure"
+dta_f$food_insecurity[dta_f$q233 == "Yes" & dta_f$q234 =="Yes"  & dta_f$q235 =="Yes"  & dta_f$q236 =="Yes"  & dta_f$q237 =="Yes"  & dta_f$q238 =="Yes"    & dta_f$q239 =="Yes"  & dta_f$q240 =="Yes"     ] <- "severely food insecure"
+
+
+df_prop <- dta_f %>%
+  group_by(strata, food_insecurity) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+plot_f  <- ggplot(df_prop, aes(x = food_insecurity, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "", y = "Proportion", fill = "Group") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+dta_t$food_insecurity <- "food secure"
+dta_t$food_insecurity[dta_t$q277 == "Yes" & dta_t$q278 =="Yes"  & dta_t$q279 =="Yes"   ] <- "mildly food insecure"
+dta_t$food_insecurity[dta_t$q277 == "Yes" & dta_t$q278 =="Yes"  & dta_t$q279 =="Yes"  & dta_t$q280 =="Yes"  & dta_t$q281 =="Yes"  & dta_t$q282 =="Yes"  ] <- "moderately food insecure"
+dta_t$food_insecurity[dta_t$q277 == "Yes" & dta_t$q278 =="Yes"  & dta_t$q279 =="Yes"  & dta_t$q280 =="Yes"  & dta_t$q281 =="Yes"  & dta_t$q282 =="Yes"    & dta_t$q283 =="Yes"  & dta_t$q284 =="Yes"     ] <- "severely food insecure"
+
+
+df_prop <- dta_t %>%
+  group_by(strata, food_insecurity) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+plot_t  <- ggplot(df_prop, aes(x = food_insecurity, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "", y = "Proportion", fill = "Group") +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# Combine plots side by side
+combined_plot <- plot_f + plot_t  # patchwork syntax
+
+# Save the combined plot
+ggsave("food_security_comparison.png", plot = combined_plot, width = 8, height = 8, dpi = 300)
+
+### food diversity score  
+dta_f$A <-  (((as.numeric(dta_f$q212a)/7) >.5) +  ((as.numeric(dta_f$q213a)/7)>.5) + ((as.numeric(dta_f$q214a)/7)>.5)  + ((as.numeric(dta_f$q215a)/7)>.5) + ((as.numeric(dta_f$q216a)/7)>.5) + ((as.numeric(dta_f$q219a)/7)>.5)) >0
+dta_f$B <- (((as.numeric(dta_f$q217a)/7) > .5) +  ((as.numeric(dta_f$q218a)/7)>.5))> 0
+dta_f$C <- (as.numeric(dta_f$q223a)/7)>.5
+dta_f$D <- (as.numeric(dta_f$q224a)/7)>.5
+dta_f$E <- (((as.numeric(dta_f$q225a)/7)>.5) +  (as.numeric(dta_f$q226a)/7)>.5) >0
+dta_f$F <- (as.numeric(dta_f$q228a)/7)>.5
+dta_f$G <- (as.numeric(dta_f$q227a)/7)>.5
+dta_f$H <- (((as.numeric(dta_f$q220a)/7)>.5) +  (as.numeric(dta_f$q221a)/7)>.5) >0
+dta_f$I <- (as.numeric(dta_f$q229a)/7)>.5
+dta_f$J <- (as.numeric(dta_f$q231a)/7)>.5
+dta_f$K <- (as.numeric(dta_f$q230a)/7)>.5
+dta_f$FDS <- dta_f$A + dta_f$B + dta_f$C + dta_f$D + dta_f$E + dta_f$F + dta_f$G + dta_f$H + dta_f$I + dta_f$J + dta_f$K + 1 ## assume everyone eats salt
+
+
+
+df_prop <- dta_f %>%
+  group_by(strata, FDS) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+plot_f  <- ggplot(df_prop, aes(x = FDS, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_x_continuous(breaks = seq(floor(min(df_prop$FDS, na.rm=T)), ceiling(max(df_prop$FDS, na.rm=T)), by = 1)) +
+  labs(x = "Number of Food Groups", y = "Proportion", fill = "Group") +
+  theme_minimal()
+
+
+#now for traders
+
+### food diversity score  
+dta_t$A <-  (((as.numeric(dta_t$q257a)/7) >.5) +  ((as.numeric(dta_t$q258a)/7)>.5) + ((as.numeric(dta_t$q259a)/7)>.5)  + ((as.numeric(dta_t$q260a)/7)>.5) + ((as.numeric(dta_t$q261a)/7)>.5) + ((as.numeric(dta_t$q264a)/7)>.5)) >0
+dta_t$B <- (((as.numeric(dta_t$q262a)/7) > .5) +  ((as.numeric(dta_t$q262a)/7)>.5))> 0
+dta_t$C <- (as.numeric(dta_t$q267a)/7)>.5
+dta_t$D <- (as.numeric(dta_t$q268a)/7)>.5
+dta_t$E <- (((as.numeric(dta_t$q269a)/7)>.5) +  (as.numeric(dta_t$q270a)/7)>.5) >0
+dta_t$F <- (as.numeric(dta_t$q272a)/7)>.5
+dta_t$G <- (as.numeric(dta_t$q271a)/7)>.5
+dta_t$H <- (((as.numeric(dta_t$q265a)/7)>.5) +  (as.numeric(dta_t$q266a)/7)>.5) >0
+dta_t$I <- (as.numeric(dta_t$q273a)/7)>.5
+dta_t$J <- (as.numeric(dta_t$q274a)/7)>.5
+dta_t$K <- (as.numeric(dta_t$q275a)/7)>.5
+dta_t$L <- (as.numeric(dta_t$q276a)/7)>.5
+dta_t$FDS <- dta_t$A + dta_t$B + dta_t$C + dta_t$D + dta_t$E + dta_t$F + dta_t$G + dta_t$H + dta_t$I + dta_t$J + dta_t$K + dta_t$L ## assume everyone eats salt
+
+df_prop <- dta_t %>%
+  group_by(strata, FDS) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+plot_t <- ggplot(df_prop, aes(x = FDS, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_x_continuous(breaks = seq(floor(min(df_prop$FDS)), ceiling(max(df_prop$FDS)), by = 1)) +
+  labs(x = "Number of Food Groups", y = "Proportion", fill = "Group") +
+  theme_minimal()
+
+# Combine plots side by side
+combined_plot <- plot_f + plot_t  # patchwork syntax
+
+# Save the combined plot
+ggsave("diet_diversity_score.png", plot = combined_plot, width = 8, height = 8, dpi = 300)
+
+###  Livelihood Coping Strategies – Food Security (LCS-FS) 
+library(labelled)
+#library(expss)
+
+dta_f <- dta_f %>%
+  mutate(across(c(m1:m16), ~ case_when(
+    . == "No, because I did not need to" ~ 10,
+    . == "No, we sold those assets or engaged in this activity within the last 12 months and can't continue" ~ 20,
+    . == "Yes" ~ 30,
+    . == "Not applicable (don’t have access to this strategy)" ~ 9999,
+    TRUE ~ NA_real_  # handles missing or unmatched values
+  )))
+
+#value labels
+dta_f <- dta_f %>%
+  mutate(across(c(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16), ~labelled(., labels = c(
+    "No, because I did not need to" = 10,
+    "No, we sold those assets or engaged in this activity within the last 12 months and can't continue" = 20,
+    "Yes" = 30,
+    "Not applicable (don’t have access to this strategy)" = 9999
+  ))))
+
+#create a variable to specify if the household used any of the strategies by severity
+#stress
+dta_f <- dta_f %>% mutate(stress_coping_FS = case_when(
+  m1 == 20 | m1 == 30 ~ 1,
+  m2 == 20 | m2 == 30 ~ 1,
+  m3 == 20 | m3 == 30 ~ 1,
+  m4 == 20 | m4 == 30 ~1,
+  m5 == 20 | m5 == 30 ~ 1,
+  m6 == 20 | m6 == 30 ~ 1,
+    TRUE ~ 0))
+var_label(dta_f$stress_coping_FS) <- "Did the HH engage in stress coping strategies"
+#Crisis
+dta_f <- dta_f %>% mutate(crisis_coping_FS = case_when(
+  m7 == 20 | m7 == 30 ~ 1,
+  m8 == 20 | m8 == 30 ~ 1,
+  m9 == 20 | m9 == 30 ~ 1,
+  m10 == 20 | m10 == 30 ~1,
+  m11 == 20 | m11 == 30 ~ 1,
+  m12 == 20 | m12 == 30 ~ 1,
+  m13 == 20 | m13 == 30 ~ 1,
+  TRUE ~ 0))
+var_label(dta_f$crisis_coping_FS) <- "Did the HH engage in crisis coping strategies"
+#Emergency
+dta_f <- dta_f %>% mutate(emergency_coping_FS = case_when(
+  m14 == 20 | m14 == 30 ~ 1,
+  m15 == 20 | m15 == 30 ~ 1,
+  m16 == 20 | m16 == 30 ~ 1,
+  TRUE ~ 0))
+var_label(dta_f$emergency_coping_FS) <- "Did the HH engage in emergency coping strategies"
+
+#calculate Max_coping_behaviour
+dta_f <- dta_f %>% mutate(Max_coping_behaviourFS = case_when(
+  emergency_coping_FS == 1 ~ "emergency",
+  crisis_coping_FS == 1 ~ "crisis",
+  stress_coping_FS == 1 ~ "stress",
+  TRUE ~ "none"))
+
+df_prop <- dta_f %>%
+  group_by(strata, Max_coping_behaviourFS) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+df_prop$Max_coping_behaviourFS <- factor(df_prop$Max_coping_behaviourFS,
+                                         levels = c("none", "stress", "crisis", "emergency"))
+
+plot_f <- ggplot(df_prop, aes(x = Max_coping_behaviourFS, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "", y = "Proportion", fill = "Group") +
+  theme_minimal() +   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+##now for traders
+dta_t <- dta_t %>%
+  mutate(across(c(m1:m16), ~ case_when(
+    . == "No, because I did not need to" ~ 10,
+    . == "No, we sold those assets or engaged in this activity within the last 12 months and can't continue" ~ 20,
+    . == "Yes" ~ 30,
+    . == "Not applicable (don’t have access to this strategy)" ~ 9999,
+    TRUE ~ NA_real_  # handles missing or unmatched values
+  )))
+
+#value labels
+dta_t <- dta_t %>%
+  mutate(across(c(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16), ~labelled(., labels = c(
+    "No, because I did not need to" = 10,
+    "No, we sold those assets or engaged in this activity within the last 12 months and can't continue" = 20,
+    "Yes" = 30,
+    "Not applicable (don’t have access to this strategy)" = 9999
+  ))))
+
+#create a variable to specify if the household used any of the strategies by severity
+#stress
+dta_t <- dta_t %>% mutate(stress_coping_FS = case_when(
+  m1 == 20 | m1 == 30 ~ 1,
+  m2 == 20 | m2 == 30 ~ 1,
+  m3 == 20 | m3 == 30 ~ 1,
+  m4 == 20 | m4 == 30 ~1,
+  m5 == 20 | m5 == 30 ~ 1,
+  m6 == 20 | m6 == 30 ~ 1,
+  TRUE ~ 0))
+var_label(dta_t$stress_coping_FS) <- "Did the HH engage in stress coping strategies"
+#Crisis
+dta_t <- dta_t %>% mutate(crisis_coping_FS = case_when(
+  m7 == 20 | m7 == 30 ~ 1,
+  m8 == 20 | m8 == 30 ~ 1,
+  m9 == 20 | m9 == 30 ~ 1,
+  m10 == 20 | m10 == 30 ~1,
+  m11 == 20 | m11 == 30 ~ 1,
+  m12 == 20 | m12 == 30 ~ 1,
+  m13 == 20 | m13 == 30 ~ 1,
+  TRUE ~ 0))
+var_label(dta_t$crisis_coping_FS) <- "Did the HH engage in crisis coping strategies"
+#Emergency
+dta_t <- dta_t %>% mutate(emergency_coping_FS = case_when(
+  m14 == 20 | m14 == 30 ~ 1,
+  m15 == 20 | m15 == 30 ~ 1,
+  m16 == 20 | m16 == 30 ~ 1,
+  m17 == 20 | m17 == 30 ~ 1,
+  TRUE ~ 0))
+var_label(dta_t$emergency_coping_FS) <- "Did the HH engage in emergency coping strategies"
+
+#calculate Max_coping_behaviour
+dta_t <- dta_t %>% mutate(Max_coping_behaviourFS = case_when(
+  emergency_coping_FS == 1 ~ "emergency",
+  crisis_coping_FS == 1 ~ "crisis",
+  stress_coping_FS == 1 ~ "stress",
+  TRUE ~ "none"))
+
+df_prop <- dta_t %>%
+  group_by(strata, Max_coping_behaviourFS) %>%
+  summarise(count = n()) %>%
+  group_by(strata) %>%
+  mutate(prop = count / sum(count)) %>%
+  ungroup()
+
+df_prop$Max_coping_behaviourFS <- factor(df_prop$Max_coping_behaviourFS,
+                                         levels = c("none", "stress", "crisis", "emergency"))
+
+plot_t <- ggplot(df_prop, aes(x = Max_coping_behaviourFS, y = prop, fill = strata)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "", y = "Proportion", fill = "Group") +
+  theme_minimal()  +  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# Combine plots side by side
+combined_plot <- plot_f + plot_t  # patchwork syntax
+
+# Save the combined plot
+ggsave("coping_score.png", plot = combined_plot, width = 8, height = 8, dpi = 300)
+
+### regression analysis
+
+
+# 
+# dta_f$price
+# dta_f$north <- dta_f$district_code %in% c("Hoima","Masindi","Kiryandongo")
+# summary(lm(price~strata + north,dta_f))
+# 
+# ### formal analysis - look at difference between indirect and spillover withing farmer pair
+# dta_f$pairFE <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 1)  
+# dta_f$treat <-  sapply(strsplit(dta_f$old_farmerid, "_"), `[`, 2) 
+# 
+# summary(lm(price ~ treat + pairFE,dta_f[dta_f$treat !="C",]))
+# summary(lm(price ~ treat,dta_f[dta_f$treat !="C",]))
