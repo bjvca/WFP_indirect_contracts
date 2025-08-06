@@ -1,0 +1,40 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Aug 06, 2025 - 10:29:52 PM
+\begin{table}[!htbp] \centering 
+  \caption{Effect of WFP Connection on Trader providing inputs} 
+  \label{tab:wfp_trader_inputs} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{Dependent variable: Invests in quality (1=yes)} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{inputs} \\ 
+\\[-1.8ex] & \multicolumn{2}{c}{\textit{OLS}} & \multicolumn{2}{c}{\textit{instrumental}} \\ 
+ & \multicolumn{2}{c}{\textit{}} & \multicolumn{2}{c}{\textit{variable}} \\ 
+ & OLS Exogenous & OLS Endogenous & IV & IV + Controls \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Strata (instrument) & 0.280$^{***}$ &  &  &  \\ 
+  & (0.056) &  &  &  \\ 
+  WFP connected (endogenous) &  & 0.310$^{***}$ & 1.131$^{***}$ & 1.041$^{***}$ \\ 
+  &  & (0.070) & (0.270) & (0.291) \\ 
+  Male head &  &  &  & 0.406$^{***}$ \\ 
+  &  &  &  & (0.068) \\ 
+  Age head &  &  &  & $-$0.006 \\ 
+  &  &  &  & (0.004) \\ 
+  Prim head &  &  &  & $-$0.065 \\ 
+  &  &  &  & (0.069) \\ 
+  HH size &  &  &  & 0.008 \\ 
+  &  &  &  & (0.012) \\ 
+  VolumeSold &  &  &  & $-$0.00002 \\ 
+  &  &  &  & (0.00001) \\ 
+ \hline \\[-1.8ex] 
+Strata used as instrument & No & No & Yes & Yes \\ 
+Estimation & OLS & OLS & 2SLS & 2SLS \\ 
+Observations & 297 & 297 & 297 & 281 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

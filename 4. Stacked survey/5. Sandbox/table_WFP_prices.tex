@@ -1,0 +1,46 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Aug 06, 2025 - 10:29:51 PM
+\begin{table}[!htbp] \centering 
+  \caption{Effect of WFP connection on farm-gate prices} 
+  \label{tab:wfp_farmer_prices} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{Dependent variable: Price} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{Price} \\ 
+\\[-1.8ex] & \multicolumn{2}{c}{\textit{OLS}} & \multicolumn{2}{c}{\textit{instrumental}} \\ 
+ & \multicolumn{2}{c}{\textit{}} & \multicolumn{2}{c}{\textit{variable}} \\ 
+ & OLS Exogenous & OLS Endogenous & IV & IV + Controls \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Strata (instrument) & 23.050$^{*}$ &  &  &  \\ 
+  & (11.781) &  &  &  \\ 
+  WFP connected (endogenous) &  & 54.195$^{***}$ & 180.850$^{*}$ & 228.190$^{***}$ \\ 
+  &  & (15.974) & (93.096) & (88.557) \\ 
+  Male head &  &  &  & $-$1.337 \\ 
+  &  &  &  & (12.971) \\ 
+  Age head &  &  &  & $-$0.033 \\ 
+  &  &  &  & (0.421) \\ 
+  Primary head &  &  &  & 15.715 \\ 
+  &  &  &  & (10.961) \\ 
+  HH size &  &  &  & $-$1.685 \\ 
+  &  &  &  & (1.799) \\ 
+  Land owned &  &  &  & 0.396 \\ 
+  &  &  &  & (0.667) \\ 
+  Coop member &  &  &  & $-$30.696 \\ 
+  &  &  &  & (19.571) \\ 
+  Volume sold &  &  &  & 0.002 \\ 
+  &  &  &  & (0.002) \\ 
+ \hline \\[-1.8ex] 
+Month FE & Yes & Yes & Yes & Yes \\ 
+Strata2 used as instrument & No & No & Yes & Yes \\ 
+Estimation & OLS & OLS & 2SLS & 2SLS \\ 
+Observations & 2,210 & 2,210 & 2,210 & 2,099 \\ 
+R$^{2}$ & 0.083 & 0.086 & 0.055 & 0.041 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
