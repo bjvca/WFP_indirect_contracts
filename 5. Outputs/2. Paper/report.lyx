@@ -186,7 +186,7 @@ Since 2004,
  which require that large traders,
  acting as intermediaries in WFP’s supply chain,
  procure a specified share of their contracted volume directly from smallholder farmers.
- This report draws on systematically collected survey data from farmers and traders in western Uganda to evaluate the extent to which the LRFP policy has contributed to these objectives and helped drive transformation in local agricultural value chains.
+ This report draws on systematically collected survey data from farmers and aggregators in western Uganda to evaluate the extent to which the LRFP policy has contributed to these objectives and helped drive transformation in local agricultural value chains.
 \end_layout
 
 \begin_layout Section
@@ -237,7 +237,7 @@ Traditionally,
  Tied aid such as this has faced increasing criticism since the late 20th century for its economic inefficiency and negative impacts on recipient countries.
  The shift towards untied aid gained momentum with international agreements like the 2005 Paris Declaration on Aid Effectiveness,
  advocating for aid that aligns more closely with the development priorities of recipient countries.
- WFP followed this trend and started relying more and more on Local purchases (that is,
+ WFP followed this trend and started relying more and more on local purchases (that is,
  in the affected country) or regional purchases (that is,
  in a neighboring country or a third country in the region) of the food it needs for its food aid operations.
 \end_layout
@@ -256,14 +256,22 @@ Uganda,
  aim to enhance market access for smallholder farmers,
  improve agricultural outcomes,
  and foster equitable growth within local food markets.
- Despite the positive impacts,
- challenges persist,
- such as for instance higher costs,
- market fragmentation and high quality requirements,
- which compromises the benefits to smallholder farmers.
+ However,
+ impact evaluations paint a mixed picture and challenges—
+such as for instance higher costs,
+ market fragmentation and high quality requirements—
+persist 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "LENTZ201654,GELO2020101911"
+literal "false"
+
+\end_inset
+
+.
  Recent policy shifts towards indirect conditional contracts,
  which are agreements between WFP and wholesale maize traders requiring that a portion of procurement be sourced directly from smallholder farmers,
- aim to better integrate these farmers into the supply chain and ensure they benefit more from WFP’s stable demand.
+ aim to leverage the private sector to better integrate these farmers into the supply chain and ensure they benefit more from WFP’s stable demand in a more efficient and effective way.
 \end_layout
 
 \begin_layout Standard
@@ -274,7 +282,8 @@ Maize,
  The government has prioritized maize production in its agricultural strategy to enhance national food security and support household livelihoods.
  The maize value chain in Uganda involves numerous interconnected actors,
  from agro-input dealers who supply essential inputs like seeds and fertilizers to smallholder farmers,
- to traders and processors who turn the harvested maize into products like flour for consumer purchase.
+ over aggregators and wholesale traders,
+ to processors who turn the harvested maize into products like flour for consumer purchase.
  
 \end_layout
 
@@ -286,58 +295,50 @@ Despite government efforts to promote modern agricultural practices,
  These issues,
  coupled with inefficient market access and processing capabilities,
  stifle the overall competitiveness of Uganda's maize sector.
- Traders and small-scale processors play a crucial role in linking farmers to markets and enhancing market participation,
+ Aggregators play a crucial role in linking farmers to markets and enhancing market participation,
  even as the sector grapples with challenges in storage,
  transportation,
- and price fluctuations influenced by seasonal and regional dynamics.
-\end_layout
-
-\begin_layout Standard
-This report utilizes observational data that was collected through careful stratification from about 300 trader and 1300 farmers.
- We also collected qualitative data from wholesalers.
- Extensive exploratory and descriptive analysis will identify patterns in the data,
- while econometric techniques like fixed effects models and matching methods will be applied to rigorously attribute causality and separate the effect of indirect conditional contracts from external influences,
- thereby enhancing the reliability and depth of the findings.
-\end_layout
-
-\begin_layout Standard
-There have been surprisingly few studies on local and regional procurement and virtually none on LRP through the indirect conditional contract modality.
- Note that while emergency aid corresponds to a supply shock for the recipient country,
- the country where the food is procured incurs a demand shock,
- generally due to a single buyer that enters the market with known contracting mechanisms and quality standards.
- The study that is probably closest to ours is 
+ and price fluctuations influenced by seasonal and regional dynamics 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "upton2011local"
+key "SITKO201456"
 literal "false"
 
 \end_inset
 
- who examined the effects of local and regional procurement (LRP) of food aid in Uganda through a survey of 120 maize traders,
- highlighting the complex impacts on local markets.
- Their study revealed that while LRP can potentially stimulate local economies,
- it also raises consumer prices and market volatility,
- complicating the benefits for poor consumers and small-scale farmers.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-This could be extended somewhat?
+.
 \end_layout
 
-\end_inset
+\begin_layout Standard
+This report utilizes observational data that was collected from a stratified sample of about 300 (mostly small) aggregators and 1300 farmers.
+ We also collected qualitative data from wholesalers.
+ Extensive exploratory and descriptive analysis is used to identify patterns in the data,
+ while econometric techniques such as instrumental variables is applied in an attempt to attribute causality to the correlations and isolate the effect of WFP's Local and Regional Food Procurement Policy from other factors.
+\end_layout
 
-
+\begin_layout Standard
+The main findings of this study are that WFPs activities seem to have benefited farmers,
+ who receive higher prices for the maize they sell.
+ Aggregators,
+ on the other hand,
+ report receiving lower prices for the maize they sell onward to WFP connected wholesalers.
+ This seems to suggest that the policy does not make grain more expensive for WFP;
+ in fact,
+ the policy seems to attract more aggregators,
+ leading to increased competition which in reduces rent extraction in this section of the value chain.
+ In addition to these large and significant price effects,
+ we also find that the policy accelerates agricultural technology adoption among farmers,
+ partly because aggregators provide access to these inputs.
+ Aggregators also invest more in quality as a result of WFP presence.
 \end_layout
 
 \begin_layout Standard
 The remainder of this report is structured as follows.
- We begin with an explanation of the new procurement modality,
- focusing on indirect conditional contracting.
+ We begin with an explanation of the new procurement modality.
  Next,
  we provide an overview of Uganda’s maize sub-sector,
  highlighting the roles of farmers,
- traders,
+ aggregators,
  and wholesalers within the value chain.
  The methods section then outlines the research questions and describes how these are addressed using stack survey data.
  This is followed by the results,
@@ -420,18 +421,6 @@ literal "false"
 \end_inset
 
 .
- In addition to its focus on high quality locally sourced food commodities,
- the P4P pilot initiative also aimed to strengthen the capacity of smallholder farmers and farmer organizations,
- and to build linkages to input and service providers and processors 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "WFP2015P4P"
-literal "false"
-
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -447,7 +436,7 @@ Uganda was one of the pilot countries for the P4P initiative,
  early studies indicate that it improved farmers’ access to markets and post-harvest handling (
 \begin_inset CommandInset citation
 LatexCommand citealp
-key "Davies2010P4P"
+key "GELO2020101911,Davies2010P4P"
 literal "false"
 
 \end_inset
@@ -472,7 +461,7 @@ literal "false"
  though 
 \begin_inset CommandInset citation
 LatexCommand citet
-key "lentz2016benefits"
+key "LENTZ201654"
 literal "false"
 
 \end_inset
@@ -549,8 +538,8 @@ literal "false"
 \end_inset
 
 .
- Uganda was one of the first countries to implement the indirect conditional contracts to procure maize,
- instituted in 2021.
+ Uganda was one of the first countries to implement the indirect conditional contracts to procure maize—
+a key component of the LRFPP instituted in 2021.
  Conditional indirect contracting generally follow the same principles as traditional contracting,
  where purchases are announced in the form of national tenders that specify quantity and quality.
  However,
@@ -590,13 +579,13 @@ Maize is one of the most widely cultivated staple crops in Uganda,
 \begin_layout Standard
 A typical maize value chain in Uganda involves a network of interconnected actors.
  At the upstream level,
- agro-input dealers supply essential inputs such as improved seeds and fertilizers to smallholder farmers.
+ agro-input dealers supply essential inputs such as seed of improved varieties and fertilizers to smallholder farmers.
  These farmers,
  in turn,
  cultivate maize by combining these inputs with land and labor.
  Once harvested,
- a marketable surplus is sold to traders,
- who transport the grain to wholesalers or directly to large processors.
+ a marketable surplus is sold to aggregators (often at the farm gate of in local markets),
+ who transport the grain using bicycles or motorcycles to wholesalers or directly to large processors.
  Wholesalers generally sell to large processors.
  Farmers may also take part of the maize they consume themselves to small processors.
  Processors then transform the raw maize into final products,
@@ -728,7 +717,7 @@ literal "false"
 Market access is another key challenge for maize farmers.
  Many smallholder farmers sell maize through informal channels,
  including farmgate sales to itinerant traders who aggregate maize in trading centers and small towns.
- Small traders,
+ These small traders,
  often using bicycles or motorbikes (boda-bodas),
  play a crucial role in linking farmers to markets,
  yet their capacity is constrained by transportation limitations,
@@ -738,7 +727,7 @@ Market access is another key challenge for maize farmers.
 \end_layout
 
 \begin_layout Standard
-The role of traders is often contested,
+The role of aggregators is often contested,
  and indeed many development interventions supported by NGOs try to 
 \begin_inset Quotes eld
 \end_inset
@@ -782,7 +771,7 @@ Processing is another critical node in the value chain,
 posho
 \emph default
 —
-a staple dish made by cooking maize flour with water into a porridge or dough-like consistency.
+a staple dish made by cooking maize flour with water into a porridge.
  Processing businesses vary widely,
  from small-scale mills powered by combustion engines (
 \emph on
@@ -791,6 +780,28 @@ baga-baga
 ) that provide milling services for local farmers to large-scale industrial processors that produce fortified maize flour for commercial distribution.
  High-quality maize flour production requires multiple milling passes and advanced machinery,
  with some mills equipped for packaging and export.
+\end_layout
+
+\begin_layout Standard
+WFP enters the value chain between the wholesaler and processor nodes.
+ Their tenders target wholesalers that are able to meet both quantity and quality requirements.
+ In practice,
+ this means that wholesalers on a list of pre-qualified wholesalers get an invitation to bid on the tender.
+ If selected,
+ these wholesalers then supply WFP (usually in addition to other buyers).
+ The wholesalers are required to demonstrate that 20% of the maize that they deliver to WFP was sourced directly from smallholders through documentation.
+ This means that if these wholesaler work with aggregators,
+ the aggregators also need to be able to demonstrate the source of their maize.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Qualitative evidence suggests that this requirement was not always rigorously enforced.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -823,7 +834,7 @@ Does WFP's indirect conditional tendering approach lead to reliable output marke
 \end_layout
 
 \begin_layout Itemize
-Does the presence of WFP with its condition affect value chain inclusivity and equity?
+Does the presence of WFP with its conditionality affect value chain inclusivity and equity?
  That is,
  are there changes in which actors participate in the value chains and which actors extract most of the rents when WFP enters the market with conditionality?
  Do marginalized populations get excluded when WFP starts procuring large quantities of maize?
@@ -835,12 +846,7 @@ In addition to looking at the impact of the policy,
  we will also investigate potential general equilibrium or spillover effects of the policy.
  In particular,
  the indirect conditional contracting may drive up prices in the area,
- such that farmers that are not linked to WFP through a trader are also affected.
- Analysis of spillover effects may also be informative to answer the following question:
-\end_layout
-
-\begin_layout Itemize
-Does the indirect conditional contracting modality have additional effects over and above the effect of a significant buyer entering the market (without conditionality).
+ such that farmers that are not linked to WFP through an aggregator are also affected.
 \end_layout
 
 \begin_layout Subsection
@@ -867,22 +873,22 @@ nolink "false"
  and food security.
  Additionally,
  the growing demand for maize from urban markets and agro-industrial processors (both for consumption in Uganda or neighboring countries) has increased its commercial value,
- encouraging investments in improved production practices and inputs and in storage,
+ in some instances encouraging investments in improved production practices and inputs and in storage,
  handling and aggregation midstream.
 \end_layout
 
 \begin_layout Standard
 The survey for the study of conditional contracts aimed to gather data from three distinct types of actors:
  smallholder farmers,
- small traders who act as intermediaries between these farmers and large suppliers,
- and the large suppliers that are supplying WFP.
+ small aggregators who act as intermediaries between these farmers and wholesalers,
+ and the wholesalers that are supplying WFP and/or processors or other large buyers.
  In a first step,
  farmers were selected randomly after stratifying them into three groups:
 \end_layout
 
 \begin_layout Itemize
 Group 1:
- Farmers residing in two districts (Kabarole and Hoima) where the WFP was not actively procuring maize through large buyers.
+ Farmers residing in two districts (Kabarole and Hoima) where WFP was not actively procuring maize through large buyers.
  Farmers in these two districts were randomly selected in two stages:
  first villages 50 villages were selected from a list of all villages,
  with sampling probabilities proportional to the number of households living in the village.
@@ -917,20 +923,6 @@ Group 3:
  but who are not on the traceability list of WFP linked suppliers.
  In particular,
  the interview protocol stipulated that nearest neighbor of each Group 2 farmer also needed to be interviewed.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-In the analysis,
- could we look at direct differences between these treated and non-treated?
- that is,
- including fixed effects for farmer pairs?
- I quickly did this for price farmer receive,
- and there is no difference between farmers on the list and farmers not on the list.
-\end_layout
-
-\end_inset
-
  This group will also be referred to as the spillover group.
 \end_layout
 
@@ -982,19 +974,10 @@ name "fig:Study-area"
 \end_layout
 
 \begin_layout Standard
-Traders were identified through referral by farmers.
- For traders,
+Aggregators were identified through referral by farmers.
+ For aggregators,
  we only have two groups:
  those that are operating in areas where WFP was active and those that are operating in areas where WFP is not active.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Why did we not differentiate between buyers who sell to WFP and those that do not?
-\end_layout
-
-\end_inset
-
  Sample sizes are in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1022,7 +1005,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Achieved samples of maize farmers and traders by stratification group
+Achieved samples of maize farmers and aggregators by stratification group
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achieved-samples-of"
@@ -1193,11 +1176,13 @@ end{center}
 
 \begin_layout Standard
 The primary identification strategy relies on comparing average outcomes across the three farmer groups for farmer-level indicators,
- and across two trader groups for trader-level outcomes.
+ and across two aggregator groups for aggregator-level outcomes.
  At the farmer level,
  we estimate the impact of WFP’s procurement through the indirect conditional contract modality by comparing farmers in treatment areas (Group 2) to those in control areas (Group 1).
  To explore potential spillover effects,
- we compare outcomes between farmers in Group 2 to those in the same area but not directly liked to WFP linked traders (Group 3).
+ we compare outcomes between farmers in Group 2 to those in the same area but not directly liked to WFP linked aggregators (Group 3).
+ At the aggregator level,
+ we simply compare outcomes in the control area to outcomes of aggregators operating in the areas where WFP is active.
 \end_layout
 
 \begin_layout Standard
@@ -1214,19 +1199,16 @@ nolink "false"
 
 .
  For instance,
- some farmers in Group 1 may in fact be selling to traders linked to WFP through the indirect conditional contracting modality.
+ some farmers in Group 1 may in fact be selling to aggregators or traders linked to WFP.
  Conversely,
  not all farmers in Group 2 necessarily sold to WFP-linked buyers in the season under analysis,
  as inclusion in this group was based on having appeared on a procurement list in any season.
- Similarly,
- farmers in Group 3 may have indirect exposure to WFP,
- since sellers were only required to register 20 percent of their suppliers to comply with the contract’s conditionality.
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 From group 2,
- approximately 23% reported selling directly to WFP or through a connected trader.
+ approximately 23% reported selling directly to WFP or through a connected aggregator/trader.
  Among spillover farmers (group 3),
  this figure is about 12%.
  In contrast,
@@ -1235,16 +1217,10 @@ From group 2,
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Furthermore,
- because WFP operated exclusively through the conditional contracting modality,
- it is not possible to isolate the effect of conditionality from the broader impact of engagement with a large,
- stable buyer—
-an important and policy-relevant distinction.
- Some of these limitations will be further addressed in a separate section by complementing the group-based comparisons with data on farmers’ and traders' actual transactions with WFP-linked buyers (Section 
+ Similarly for aggregators,
+ some aggregators that collect maize in control areas may actually ship to wholesalers that are supplying WFP,
+ while aggregators located in areas where WFP procures may actually sell to a wholesaler that has now WFP link.
+ Some of these limitations will be further addressed in a separate section by complementing the group-based comparisons with data on farmers’ and aggregators' actual transactions with WFP-linked buyers and using an instrumental variables regression framework (Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Regression-Analysis"
@@ -1259,19 +1235,29 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Survey data were collected on general household characteristics of farmers and traders,
+Furthermore,
+ since WFP operated exclusively through the conditional contracting modality,
+ we are unable to disentangle the specific effect of conditionality from the broader impact of engagement with a large,
+ stable buyer.
+ This is an important and policy-relevant limitation.
+ Consequently,
+ this study examines the combined effect of exposure to a significant institutional buyer operating under a bundled conditional contracting approach.
+\end_layout
+
+\begin_layout Standard
+Survey data were collected on general household characteristics of farmers and aggregators,
  including welfare and food security indicators.
  The primary focus,
  however,
  was on marketing behavior.
  We gathered detailed information on farmers’ maize sales following both the first and second agricultural seasons of 2023,
  and on maize cultivation during the first and second season of 2023 and the first season of 2024.
- For traders,
+ For aggregators,
  data was collected on both purchase and sales transactions for the first and second season of 2023.
  Additional data was gathered on actors’ core business activities:
  for farmers,
  this included agricultural technology use and labor inputs;
- for traders,
+ for aggregators,
  this encompassed handling and storage practices,
  as well as access to finance.
 \end_layout
@@ -1281,7 +1267,7 @@ Descriptive Analysis
 \end_layout
 
 \begin_layout Subsection
-The impact of reliable output markets
+Reliable output markets
 \end_layout
 
 \begin_layout Standard
@@ -1309,8 +1295,8 @@ literal "false"
 
  find that Foreign Direct Investment in various large dairy processing plants in southwester Uganda created a reliable market for raw milk that led to upgrading across the entire value chain.
  In this section,
- we trace this impact pathway by first testing if indirect conditional contracts are correlated to market participation.
- We the look for associations between indirect contracting and investment in technologies and practices.
+ we trace this impact pathway by first testing if the LRFPP is correlated to market participation.
+ We then look for associations between WFP procurement activity and investment in technologies and practices.
  Finally,
  we look at some production related outcomes.
  
@@ -1401,34 +1387,8 @@ name "subsec:Market-participation"
 \end_layout
 
 \begin_layout Standard
-We find that 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23A))[2]*100,0))}
-\end_layout
-
-\end_inset
-
- percent of farmers make at least one sales transaction in the first season of 2023,
- while this figure is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{as.numeric(round(prop.table(table(dta_f$market_participation_23B))[2]*100,0))}
-\end_layout
-
-\end_inset
-
- in the second season of 2023.
+We find that 91 percent of farmers make at least one sales transaction in the first season of 2023,
+ while this figure is 89 percent in the second season of 2023.
  The top panel of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1903,43 +1863,13 @@ end{center}
 We also find significant differences in quantities sold.
  For instance,
  we find that quantity sold is higher in the indirect contract group than in the control group,
- significantly so in the first season (p-value = 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(t.test(VolumeSold_23A~strata,
- data = dta_f[dta_f$strata!="Spillover",])$p.value,
- digits = 3)}
-\end_layout
-
-\end_inset
-
-).
+ significantly so in the first season (p-value = 0.067).
  However,
  quantities sold are similar in control and spillover groups.
  In fact,
  in the first season of 2023,
  quantities sold are actually lower in the spillover group than in the control group,
- but the difference is not significant (p-value = 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(t.test(VolumeSold_23A~strata,
- data = dta_f[dta_f$strata!="Indirect",])$p.value,
- digits = 3)}
-\end_layout
-
-\end_inset
-
-).
+ but the difference is not significant (p-value = 0.458).
 \end_layout
 
 \begin_layout Standard
@@ -1950,72 +1880,31 @@ Finally,
 \end_layout
 
 \begin_layout Standard
-Our stack survey allows us to also look at market participation patterns at the trader level.
- To check if the intervention led to traders entering the market,
- we asked how many other maize buyer/traders operate in the areas where the trader usually buys maize.
+Our stack survey allows us to also look at market participation patterns at the aggregator level.
+ To check if the intervention led to aggregators entering the market,
+ we asked how many other maize buyer/aggregators/traders operate in the areas where the aggregator usually collects maize.
  We find that on average,
- there are about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$competition[dta_t$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- other traders working in the control area.
- This is 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$competition[dta_t$strata != 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- in areas where the policy is implemented,
- and the difference is significant (p-value = 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(t.test(dta_t$competition~dta_t$strata)$p.value,3)}
-\end_layout
-
-\end_inset
-
-).
+ there are about 6.41 other aggregators working in the control area.
+ This is 9.23 in areas where the policy is implemented,
+ and the difference is significant (p-value = 0.002).
  This seems to suggest that the policy is positively related to competition among aggregators.
- 
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the findings suggest that the presence of WFP’s indirect conditional contracting policy is associated with increased farmer engagement in maize markets.
+ Market participation rates are notably higher in the treatment group compared to control areas,
+ and farmers exposed to the policy tend to sell larger quantities,
+ particularly in the first season of 2023.
+ Moreover,
+ the marketable surplus is clearly higher in the indirect contract group,
+ indicating stronger commercialization incentives.
+ While spillover effects on quantities sold and surplus are less consistent,
+ there is no evidence of a negative impact.
+ At the aggregator level,
+ we observe significantly more active maize buyers in areas where the policy is implemented,
+ pointing to increased competition in local aggregation—
+an important mechanism through which the policy may be improving market access and outcomes for farmers.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2033,6 +1922,26 @@ name "subsec:Adoption-of-technologies"
 We next test if reliable market access crowds in modern agricultural technologies such as improved seed varieties and fertilizer.
  For the sake of space,
  we investigate this only for the first season of 2023.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The formal analysis in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Regression-Analysis"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents results for both seasons.
+\end_layout
+
+\end_inset
+
  Results of adoption by different groups are summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2050,7 +1959,7 @@ nolink "false"
 \begin_layout Standard
 A first outcome we look at is the use of chemicals.
  Use of pesticides,
- herbicides and fungicides is surprisingly high in Uganda.
+ herbicides and fungicides is relatively high in Uganda.
  Most farmers use pesticides against fall armyworm and maize stem borers.
  We see that in the control group,
  just under 60 percent of farmers are using some kind of chemical on a randomly selected maize plot.
@@ -2079,50 +1988,8 @@ Next,
  we look at use of improved maize seed varieties obtained from a trusted source (as opposed to farmer saved seed).
  Adoption of improved seed varieties is in line with expectations.
  In the control group,
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(plot_data_adoption[2,3]*100,
- digits = 0)}
-\end_layout
-
-\end_inset
-
- percent of farmers indicate that they are using improved seed varieties on the randomly selected plot.
- This increases to 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(plot_data_adoption[12,3]*100,
- digits = 0)}
-\end_layout
-
-\end_inset
-
- percent for spillover farmers and 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(plot_data_adoption[7,3]*100,
- digits = 0)}
-\end_layout
-
-\end_inset
-
- percent for farmers for the indirect contract group.
+ 39 percent of farmers indicate that they are using improved seed varieties on the randomly selected plot.
+ This increases to 48 percent for spillover farmers and 58 percent for farmers for the indirect contract group.
  This suggests that WFP's procurement policy is positively associates with the adoption of improved seed varieties.
 \end_layout
 
@@ -2155,7 +2022,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2197,6 +2064,17 @@ name "fig:Adoption-of-agricultural"
 
 \end_layout
 
+\begin_layout Standard
+Overall,
+ the results suggest that WFP’s procurement policy is positively associated with the adoption of improved technologies,
+ particularly improved seed varieties.
+ While fertilizer use remains low and chemical use slightly declines—
+possibly due to stricter quality standards—
+improved seed adoption increases notably in treatment areas.
+ Given the strong link between seed quality and yield,
+ this is likely the most important channel through which the policy boosts marketable surplus.
+\end_layout
+
 \begin_layout Subsubsection
 Production
 \begin_inset CommandInset label
@@ -2229,67 +2107,9 @@ nolink "false"
  illustrates both the propensity to produce and the area under cultivation in three seasons.
  For example,
  in the first season of 2023,
- approximately 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(alldot$share[alldot$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Indirect
-\begin_inset Quotes erd
-\end_inset
-
- & alldot$season == 
-\begin_inset Quotes eld
-\end_inset
-
-23A
-\begin_inset Quotes erd
-\end_inset
-
-]*100)}
-\end_layout
-
-\end_inset
-
- % of the farmers who were directly exposed to the policy cultivated maize.
+ approximately 94% of the farmers who were directly exposed to the policy cultivated maize.
  In comparison,
- only 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(alldot$share[alldot$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
- & alldot$season == 
-\begin_inset Quotes eld
-\end_inset
-
-23A
-\begin_inset Quotes erd
-\end_inset
-
-]*100)}
-\end_layout
-
-\end_inset
-
- % of farmers in the control group did so.
+ only 88% of farmers in the control group did so.
 \end_layout
 
 \begin_layout Standard
@@ -3483,72 +3303,14 @@ It is important to acknowledge that these figures may be somewhat inflated due t
 \begin_layout Standard
 The table also shows that area planted seems to be larger in locations that are exposed to indirect conditional contracting.
  For instance,
- while the average area planted with maize is about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(alldot$plotsize[alldot$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Indirect
-\begin_inset Quotes erd
-\end_inset
-
- & alldot$season == 
-\begin_inset Quotes eld
-\end_inset
-
-23A
-\begin_inset Quotes erd
-\end_inset
-
-],1)}
-\end_layout
-
-\end_inset
-
- acres in the first season of 2023 for treatment and spillover farmers,
- this is only 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(alldot$plotsize[alldot$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
- & alldot$season == 
-\begin_inset Quotes eld
-\end_inset
-
-23A
-\begin_inset Quotes erd
-\end_inset
-
-],1)}
-\end_layout
-
-\end_inset
-
- acres for control farmers.
+ while the average area planted with maize is about 2.7 acres in the first season of 2023 for treatment and spillover farmers,
+ this is only 2.3 acres for control farmers.
 \end_layout
 
 \begin_layout Standard
 Next,
  the table turns to production.
- We see a sharp reduction in production in the first season of 1014.
+ We see a sharp reduction in production in the first season of 2024.
  This was caused by erratic rainfall,
  where it rained early but stooped,
  causing seeds to not germinate and farmers needed to replant.
@@ -3571,209 +3333,15 @@ Combining plot size and production to obtain yields,
 \end_layout
 
 \begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Production-and-plot"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- brings a slightly different perspective on maize productivity by examining how it evolves over time across the different groups.
- In the figure,
- the vertical axis displays changes in production between consecutive seasons.
- With data spanning three seasons,
- the figure thus captures two changes:
- the change from the first to the second season of 2023 (indicated by circles) and from the second season of 2023 to the first season of 2024 (indicated by triangles).
-\end_layout
-
-\begin_layout Standard
-Between the first and second seasons of 2023 (23A–23B) there is no change in average quantity of maize produced in the control group.
- Similarly,
- for this group,
- the average area from which this quantity was obtained remained the same,
- leading us to conclude that productivity was stable in this group.
- For the indirect conditional contracting group as well as the spillover farmers,
- production also remained the same on average.
- However,
- for these groups,
- the area on which maize was grown declined,
- leading us to conclude that productivity increased between the first and second season.
-\end_layout
-
-\begin_layout Standard
-Between the second season of 2023 and the first season of 2024 (23B-24A),
- all groups experience significant declines in both production and area used for maize.
- However,
- at least for the spillover group,
- the reduction in production is smaller than the reduction for the control,
- while the reduction in plot size is larger than for the control.
- As such,
- while productivity reduced for both groups,
- reduction in productivity is largest in the control group.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/prod_change_both.png
-	lyxscale 26
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Production and plot size change over time
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Production-and-plot"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The trader level equivalent of production would be volumes of maize moved through trader networks.
- We find that in the first season of 2023,
- the average trader in the control group traded about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$purchase_23A[dta_t$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- metric tons of maize.
- In the indirect/spillover group,
- traders handle about 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$purchase_23A[dta_t$strata != 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- metric tons of maize.
- In the second season of 2023,
- the figures are 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$purchase_23B[dta_t$strata == 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- metric tons and 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mean(dta_t$purchase_23B[dta_t$strata != 
-\begin_inset Quotes eld
-\end_inset
-
-Control
-\begin_inset Quotes erd
-\end_inset
-
-],
- na.rm=T),2)}
-\end_layout
-
-\end_inset
-
- metric tons respectively.
- This suggests that the policy does not only draw traders into the market (see Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Market-participation"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-),
- it may also incentivize greater investment in aggregation,
- processing,
- or transport capacity,
- thereby amplifying market throughput.
- The growing divergence in trade volumes across seasons reinforces the idea that WFP’s procurement modality can stimulate scaling behaviors among intermediaries,
- potentially improving efficiency in the maize value chain.
+Overall,
+ the policy appears to influence production decisions,
+ with farmers in treatment and spillover areas more likely to grow maize and to allocate larger areas to its cultivation.
+ In the first season of 2023,
+ maize production was most widespread and intensive among farmers in the indirect contract group.
+ Yields and total production follow a similar pattern,
+ with consistently higher output in treatment areas across seasons—
+despite weather-related losses in 2024.
+ These results suggest that the policy not only boosts market participation but also encourages sustained and scaled-up maize production.
 \end_layout
 
 \begin_layout Subsection
@@ -3788,30 +3356,18 @@ name "subsec:Commodity-flows"
 \end_layout
 
 \begin_layout Standard
-The previous section showed that the policy was associated with increased production and higher volumes handled.
+The previous section showed that WFP procurement areas were associated with increased production and higher volumes handled.
  In this section,
  we take a closer look at commodity flows within the value chain.
  Specifically,
- using trader level data,
+ using aggregator level data,
  we examine how the origin and destination of traded maize differs between groups.
 \end_layout
 
 \begin_layout Standard
-In addition to collecting information on the quantities of maize procured (see Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Production"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- we asked traders to report the origin of their purchases as a share of total volume.
+We asked aggregators to report the origin of their purchases as a share of total volume.
  Similarly,
- traders were also asked to indicate the distribution of their sales across different buyer types,
+ aggregators were also asked to indicate the distribution of their sales across different buyer types,
  expressed as percentage shares.
  This information is summarized in Figure 
 \begin_inset CommandInset ref
@@ -3828,15 +3384,15 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-The figure illustrates that the majority of maize procured by traders—
+The figure illustrates that the majority of maize procured by aggregators—
 approximately 65 percent—
 comes directly from farmers,
  with this share being consistent across both groups.
- Fellow traders also represent a significant source,
- with a slightly higher share observed in policy-exposed areas compared to the control group (24 percent versus 20 percent).
+ Fellow aggregators also represent a significant source,
+ with a slightly higher share observed in areas where WFP is active compared to the control group (24 percent versus 20 percent).
  In addition,
- traders operating in areas where the policy was implemented source more maize from markets than their counterparts in control areas,
- while the volume procured from cooperatives is three times higher in policy exposed areas than in control areas.
+ aggregators operating in areas where the policy was implemented source more maize from markets than their counterparts in control areas,
+ while the volume procured from cooperatives is three times higher in WFP procurement areas than in control areas.
  Qualitative insights suggest that this difference may stem from the policy’s requirement for farmer registration,
  a process that is often more straightforward when dealing with cooperatives,
  which typically maintain farmer registries.
@@ -3845,14 +3401,14 @@ comes directly from farmers,
 \begin_layout Standard
 At the downstream side,
  most maize is sold to wholesalers not linked to WFP.
- In areas affected by the policy,
+ In areas where WFP is active,
  a similar share is also sold to other downstream traders.
  Notably,
  in control areas,
  a large portion of sales is recorded under "other buyers"—
 a residual category used when reported shares did not sum to 100 percent.
  As expected,
- traders in control areas rarely sell to WFP,
+ aggregators in control areas rarely sell to WFP,
  either directly or through WFP-affiliated wholesalers.
  In contrast,
  approximately 10 percent of maize traded in the treatment areas is supplied to WFP.
@@ -3919,6 +3475,17 @@ name "fig:Commodity-flows"
 
 \end_layout
 
+\begin_layout Standard
+Overall,
+ the findings show that while most maize continues to be sourced directly from farmers across all areas,
+ the presence of the WFP policy is associated with notable shifts in both sourcing and sales patterns.
+ Aggregators in treatment areas source more from markets and cooperatives—
+likely due to registration requirements—
+and sell a measurable share (around 10%) to WFP,
+ either directly or indirectly.
+ This suggests that the policy not only affects production and volumes handled but also reshapes upstream and downstream linkages within the value chain.
+\end_layout
+
 \begin_layout Subsection
 Price margin analysis
 \begin_inset CommandInset label
@@ -3931,9 +3498,9 @@ name "subsec:Price-margin-analysis"
 \end_layout
 
 \begin_layout Standard
-Central to many value chain studies is the question of how rents are distributed over different value chain actors.
+Central to many value chain studies is the question of how rents are distributed across the different value chain actors.
  A convenient way to illustrate this is by price spread plots,
- that plot prices received by the actor upstream (eg the farmer) against prices received by the actor downstream (eg the trader).
+ that plot prices received by the actor upstream (eg the farmer) against prices received by the actor downstream (eg the aggregator).
  One can then plot a 45 degree line,
  were prices paid to upstream actors are equal to prices received from downstream actors.
  As such,
@@ -3954,13 +3521,13 @@ nolink "false"
 
 \end_inset
 
- plots observations for farmer-trader transactions in control areas in red,
- and observations for farmer-trader transactions in areas exposed to the policy in green.
+ plots observations for farmer-aggregator transactions in control areas in red,
+ and observations for farmer-aggregator transactions in areas exposed to the policy in green.
  As can be seen,
  most points are above the 45 degree line,
- though there also seem to be occasions where the price at which traders (reportedly) bought maize was higher than the price at which they sold.
- While some of these traders may have made a loss,
- some if it will also be measurement error since it may be hard for traders to name a single average price over an entire season.
+ though there also seem to be occasions where the price at which aggregators (reportedly) bought maize was higher than the price at which they sold.
+ While some of these aggregators may have made a loss,
+ some if it will also be measurement error since it may be hard for aggregators to name a single average price over an entire season.
 \end_layout
 
 \begin_layout Standard
@@ -3968,22 +3535,23 @@ To deal with over-plotting,
  we added contour plots with the same color coding to the figure.
  For the control group,
  density is highest at points corresponding to a farm gate price of about UGX550 per kilogram of maize and a sales price of about UGX725 per kilogram,
- leading to a trader margin of about UGX175 per kilogram of maize.
+ leading to an aggregator margin of about UGX175 per kilogram of maize.
  In other words,
  in control areas,
- farmers receive about 75 percent of the price at which traders sell.
- For traders working in areas where the policy was implemented,
+ farmers receive about 75 percent of the price at which aggregators sell onward.
+ For aggregators working in areas where the policy was implemented,
  density is highest to the southeast of the control density plot.
  In particular,
- in these areas traders pay about UGX625 per kilogram,
- while traders sell onward for about UGX700,
- leading to a trader margin of about UGX125 per kilogram.
+ in these areas aggregators pay about UGX625 per kilogram,
+ while they sell onward at about UGX700,
+ leading to a margin of about UGX125 per kilogram.
  In these areas,
- farmers receive about 90 percent of the price at which traders sell.
+ farmers receive about 90 percent of the price at which aggregators sell.
  Note that compared to the control areas,
  farmers get more at the farm-gate,
- while consumers are likely to pay less.
+ while those buying from aggregators pay less.
  This seems to suggest that value chains are more efficient in areas where WFP is procuring.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4009,7 +3577,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Price margin analysis using trader level data
+Price margin analysis using aggregator level data
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Price-margin-analysis-traders"
@@ -4030,7 +3598,7 @@ name "fig:Price-margin-analysis-traders"
 \end_layout
 
 \begin_layout Standard
-We can also combine data at the farmer level with data at the trader level to triangulate these important findings.
+We can also combine data at the farmer level with data at the aggregator level to triangulate these important findings.
  We also split that data by season.
  Figure 
 \begin_inset CommandInset ref
@@ -4043,22 +3611,22 @@ nolink "false"
 
 \end_inset
 
- confirms that in areas where WFP was active with Indirect conditional contracting,
- traders capture less of the rents than in control ares,
+ confirms that in areas where WFP was active,
+ aggregators capture less of the rents than in control ares,
  and this is the case in both seasons.
  For example,
  in the first season of 2023,
  farmers sold maize at about UGX800 per kg,
- while traders sold at about 875,
+ while aggregator sold at about 875,
  implying a pass through of about 90 percent.
  In the control areas,
  farmer sell at about 750,
- while traders sell at 900,
+ while aggregator sell at 900,
  implying farmers get only about 83 percent of seller prices.
  We also see that the margin reduces with overall price levels.
  In the second season of 2023,
  farmers in the treatment areas sold at 650,
- while traders sold at 775,
+ while aggregators sold at 775,
  implying a pass through of 83 percent;
  in control areas pass through reduces to 73 percent.
 \end_layout
@@ -4087,7 +3655,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Price margin analysis combining farmer and trader level data
+Price margin analysis combining farmer and aggragator level data
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Price-margin-analysis-farmers"
@@ -4108,22 +3676,25 @@ name "fig:Price-margin-analysis-farmers"
 \end_layout
 
 \begin_layout Standard
-The increase in price may be a direct effect of increased prices and quantities demanded by a significant and credible buyer.
+The observed increase in farm-gate prices may reflect the direct effect of higher prices and volumes offered by a large,
+ credible buyer like WFP.
  However,
- there are many be other indirect pathways through which the policy may increase prices.
- One such indirect pathway would be that the entry of a large buyer leads to market entry by traders 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "upton2011local"
-literal "false"
+ this is accompanied by a notable reduction in the prices at which aggregators sell maize onward.
+ One possible explanation is that WFP-linked aggregators have limited ability to engage in intertemporal price arbitrage.
+ Because they must meet WFP procurement timelines—
+likely earlier in the season—
+they may be forced to sell before prices peak.
+ This constraint on timing could compress margins,
+ particularly in years with strong seasonal price fluctuations,
+ and may partly explain the lower resale prices observed among aggregators operating within the WFP procurement framework.
+\end_layout
 
-\end_inset
-
-.
- We already established in section 
+\begin_layout Standard
+Another explanation,
+ which is consistent with the higher number of aggregators operating in areas where WFP is active already reported in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Market-participation"
+reference "subsec:Production"
 plural "false"
 caps "false"
 noprefix "false"
@@ -4131,17 +3702,14 @@ nolink "false"
 
 \end_inset
 
- that the policy is positively related to competition between traders.
- The increased competition among traders could then be responsible for (part of the) price increase at the farmer level.
- 
-\end_layout
-
-\begin_layout Standard
-To test if competition among traders mediates the impact of an intervention on the price received by farmers,
+,
+ is that the entry of a large buyer leads to increased competition among aggregators,
+ squeezing margins.
+ To test if competition among aggregators mediates the impact of an intervention on the price received by farmers,
  we use structural equation modeling,
  which includes techniques like path analysis and mediation analysis.
  Mediation analysis helps in understanding how an independent variable (in this case,
- indirect conditional contracting) influences a dependent variable (price received by farmers) through a mediator variable (the level of competition proxied by the number of traders in the area).
+ the presence of a significant buyer) influences a dependent variable (price received by farmers) through a mediator variable (the level of competition proxied by the number of aggregators in the area).
  
 \end_layout
 
@@ -4151,93 +3719,39 @@ Mediation analysis involves the joint estimation of two regression equations.
  the intervention is regressed on the mediator variable.
  In a second regression,
  two explanatory variables are used (the mediator and the intervention indicator) to explain the outcome (in our case the price farmers receive).
- This allows one to separate the total effect of the intervention into a direct effect (which is the effect of indirect conditional contacting on the farmgate price while controlling for trader entry) and an indirect effect (which is the effect of indirect contracting on trader entry multiplied by the effect of trader entry on farmgate prices while controlling for the indirect contracting).
+ This allows one to separate the total effect of the intervention into a direct effect (which is the effect of WFP procurement on the farmgate price while controlling for aggregator entry) and an indirect effect (which is the effect of WFP procurement on aggregator entry multiplied by the effect of aggregator entry on farmgate prices while controlling for WFP presence).
 \end_layout
 
 \begin_layout Standard
-We combine trader level and farmer level data to run the mediation analysis.
+We combine aggregator level and farmer level data to run the mediation analysis.
  To achieve this,
  we construct a farmer-level measure of competition.
- This is done by averaging trader level indicators of competition,
- weighted by the inverse distance between each farmer and the respective traders.
+ This is done by averaging aggregator level indicators of competition,
+ weighted by the inverse distance between each farmer and the respective aggregators.
 \end_layout
 
 \begin_layout Standard
-Running the analysis then at the farmer level gives us a total effect of UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mediation_f[1,5]+mediation_f[7,5],2)}
-\end_layout
-
-\end_inset
-
- that can be decomposed into a direct effect of UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mediation_f[1,5],2)}
-\end_layout
-
-\end_inset
-
- and a mediated effect of UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mediation_f[7,5],2)}
-\end_layout
-
-\end_inset
-
-.
+Running the analysis then at the farmer level gives us a total effect of UGX 54.58 that can be decomposed into a direct effect of UGX 26.69 and a mediated effect of UGX 27.89.
  For the mediated effect,
  in the treatment area,
- there are on average 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mediation_f[2,5],0)}
-\end_layout
-
-\end_inset
-
- additional traders active,
- and each additional trader is correlated with a price increase of UGX 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-Sexpr{round(mediation_f[3,5],2)}
-\end_layout
-
-\end_inset
-
-.
+ there are on average 2 additional aggregators active,
+ and each additional aggregator is associated with a price increase of UGX 13.72.
  Importantly,
  only the indirect effect is statistically significant,
- suggesting that the price gains observed by farmers are driven by heightened competition among traders.
- This aligns with our earlier finding that farmer and trader prices move in opposite directions,
- implying that competitive pressure is compressing trader margins.
+ suggesting that the price gains observed by farmers are driven by heightened competition among aggregators.
+ This aligns with our earlier finding that farmer and aggregator prices move in opposite directions,
+ implying that competition is putting pressure on aggregator margins.
+\end_layout
+
+\begin_layout Standard
+In summary,
+ the WFP procurement policy appears to have made value chains more competitive and efficient.
+ Farmers in intervention areas receive a higher share of the final sales price,
+ while aggregator margins are compressed.
+ Mediation analysis shows this is largely driven by increased competition among aggregators,
+ rather than direct effects of WFP engagement.
+ Overall,
+ the policy shifts value chain rents toward farmers.
 \end_layout
 
 \begin_layout Subsection
@@ -4249,7 +3763,7 @@ Most farmers typically sell most of their harvest immediately after harvesting.
  Over time,
  as stocks dwindle,
  less maize is brought to the market.
- During the leans season and especially immediately before the harvest of the subsequent season,
+ During the lean season and especially immediately before the harvest of the subsequent season,
  more maize is bought than sold.
  These demand and supply patterns result in seasonal price movements in maize prices.
  
@@ -4277,17 +3791,17 @@ literal "false"
 
 \end_inset
 
- argue that farmers face a double whammy as in addition to the loss incurred by price swings,
- traders are also likely to pass transaction costs to the farmers.
+ argue that farmers face a double burden:
+ not only do they bear the brunt of price volatility,
+ but they are also likely to have transaction costs passed on to them by aggregators.
 \end_layout
 
 \begin_layout Standard
-An important question therefore is whether the indirect conditional contracting modality increases or reduces seasonality in prices.
+An important question therefore is whether the presence of a significant buyer increases or reduces seasonality in prices.
  If WFP purchases target low prices and writes out tenders immediately post harvest (and potentially distributes food aid during the lean season),
  its activities could have counter cyclical effects.
  However,
- if WFP faces delays in procurement due to administrative reasons,
- or if traders speculate on WFPs purchase,
+ if WFP faces delays in procurement (eg due to administrative reasons) or if aggregators speculate on WFPs purchase,
  price variation could increase.
  
 \end_layout
@@ -4309,7 +3823,7 @@ nolink "false"
  we do not find that quantities sold are highest immediately after harvest.
  Especially in the second season,
  farmers seem to hold on to their maize until April or May.
- There is some suggestive evidence supporting the hypothesis that farmers in the indirect conditional contacting group hold on longer to their maize.
+ There is some suggestive evidence supporting the hypothesis that farmers areas where WFP is active hold on longer to their maize.
  For instance,
  in the first season of 2023,
  volumes marketed in this group rose steadily to a peak in November.
@@ -4329,7 +3843,7 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4378,15 +3892,25 @@ name "fig:Seasonality-in-price"
 \begin_layout Standard
 Prices seem to remain fairly stable immediately after harvest.
  There is a notable increase in prices in the first season of 2023 in November,
- which is also the month when sales peak in the Indirect conditional contract group.
+ which is also the month when sales peak in WFP districts.
  Interestingly,
  the increase in prices is highest in the group of farmers that are linked to WFP buyers,
  and lowest in the control group.
  Overall,
  and in both seasons,
- prices reported by farmers that are directly linked to WFP generally report higher prices.
+ prices reported by farmers that are directly linked to WFP are generally higher.
  This seems to suggest that WFP purchases indeed led to some degree of price inflation.
- 
+\end_layout
+
+\begin_layout Standard
+In summary,
+ while maize prices typically follow a seasonal pattern driven by harvest and lean periods,
+ the presence of WFP appears to alter this cycle.
+ Farmers in WFP-linked areas seem to delay sales,
+ possibly in anticipation of higher prices,
+ and ultimately receive better prices than those in control areas.
+ This suggests that WFP procurement may increase farm-gate prices but could also contribute to price inflation,
+ depending on timing and market expectations.
 \end_layout
 
 \begin_layout Subsection
@@ -4394,18 +3918,18 @@ Inclusivity
 \end_layout
 
 \begin_layout Standard
-An important concern raised by WFP is whether the benefits arising from indirect conditional contracts reach vulnerable groups,
+An important concern raised by WFP is whether the benefits arising from their procurement reach vulnerable groups,
  such as women and youth.
  Additionally,
- one of the core objectives of the project is to ensure that smallholder farmers are able to benefit from WFP’s procurement activities.
+ one of the core objectives of the policy is to ensure that smallholder farmers are able to benefit from WFP’s procurement activities.
  In this section,
- we examine whether the impact of these contracts differs across groups,
+ we examine whether the impact differs across groups,
  with a particular focus on farm-gate prices as the key outcome variable.
 \end_layout
 
 \begin_layout Standard
 To assess inclusivity,
- we asked traders to estimate the proportion of their farmer-suppliers who are women,
+ we asked aggregators to estimate the proportion of their farmer-suppliers who are women,
  youth,
  and smallholders.
  As shown in Figure 
@@ -4427,7 +3951,7 @@ around 30 percent—
 are classified as youth,
  with little variation between treated and comparison areas.
  Regarding smallholder farmers,
- traders report a notable difference:
+ aggregators report a notable difference:
  in areas where the policy is in place,
  nearly half of the sellers are smallholders,
  suggesting that the intervention may be enhancing participation among this target group.
@@ -4439,7 +3963,7 @@ placement document
 alignment center
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -4492,7 +4016,7 @@ To look at food security,
 \series bold
 Food Insecurity Experience scale (FIES) 
 \series default
-questions refer to the experiences of the individual respondent or of the respondent’s household as a whole.
+questions that refer to the experiences of the individual respondent or of the respondent’s household as a whole.
  The questions focus on self-reported food-related behaviors and experiences associated with increasing difficulties in accessing food due to resource constraints.
  
 \end_layout
@@ -4510,7 +4034,7 @@ nolink "false"
 \end_inset
 
  compares food insecurity status across treatment groups for two populations—
-farmers (left panel) and traders (right panel).
+farmers (left panel) and aggregators (right panel).
  Among farmers,
  food insecurity is notably higher in the Indirect and Spillover groups compared to the Control group.
  While a majority of farmers across all groups are food secure,
@@ -4522,14 +4046,14 @@ farmers (left panel) and traders (right panel).
 
 \begin_layout Standard
 In contrast,
- traders display significantly higher overall food security,
+ aggregators display significantly higher overall food security,
  with over 80% classified as food secure across both the Control and Conditional/Spillover groups.
  Mild and moderate food insecurity are present but relatively limited,
  and severe food insecurity is rare.
  Interestingly,
  the Conditional/Spillover group shows marginally higher food insecurity than the Control group,
  though the differences are small.
- These patterns imply that traders,
+ These patterns imply that aggregators,
  likely benefiting from more stable incomes and market access,
  are less vulnerable to food insecurity,
  and the interventions did not produce substantial differences in outcomes for this group.
@@ -4541,14 +4065,14 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/food_security_comparison.png
 	lyxscale 25
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -4559,7 +4083,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Food insecurity for farmers and traders
+Food insecurity for farmers and aggregators
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Food-insecurity-for"
@@ -4593,10 +4117,24 @@ The
  and is an important indicator of food security for many reasons.
  A more diversified household diet is correlated with caloric and protein adequacy,
  percentage of protein from animal sources,
- and household income (Swindale & Bilinsky,
- 2006 ).
- The HDDS indicator provides a glimpse of a household's ability to access food as well as its socioeconomic status based on the previous 24 hours (Kennedy et al.,
- 2011 ).
+ and household income 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "swindale2006development"
+literal "false"
+
+\end_inset
+
+.
+ The HDDS indicator provides a glimpse of a household's ability to access food as well as its socioeconomic status based on the previous 24 hours 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kennedy2011guidelines"
+literal "false"
+
+\end_inset
+
+.
  Typically,
  0–3 means low dietary diversity very limited access to diverse foods;
  possible food insecurity.
@@ -4630,18 +4168,18 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-The right panel focuses on traders,
+The right panel focuses on aggregators,
  comparing those in the Conditional/Spillover group with those in the Control group.
  The Conditional/Spillover group displays a notable shift toward higher dietary diversity,
- with the highest proportion of traders consuming around 6 food groups,
+ with the highest proportion of aggregators consuming around 6 food groups,
  and a visibly lower proportion consuming fewer than 4 food groups compared to the Control group.
  This suggests that the intervention had a broader reach,
- not only affecting participating farmers but also influencing the dietary behavior of traders—
+ not only affecting participating farmers but also influencing the dietary behavior of aggregators—
 possibly through increased incomes,
  improved food availability,
  or learning effects.
  Overall,
- the figure highlights meaningful improvements in dietary diversity among both farmers and traders exposed directly or indirectly to the intervention.
+ the figure highlights meaningful improvements in dietary diversity among both farmers and aggregators exposed directly or indirectly to the intervention.
 \end_layout
 
 \begin_layout Standard
@@ -4650,14 +4188,14 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/diet_diversity_score.png
 	lyxscale 25
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -4709,7 +4247,7 @@ nolink "false"
 
 \end_inset
 
- illustrates the severity of livelihood coping strategies among farmers (left panel) and traders (right panel),
+ illustrates the severity of livelihood coping strategies among farmers (left panel) and aggregators (right panel),
  segmented by treatment groups.
  Among farmers,
  a lower proportion of households in the Indirect and Spillover groups report using no coping strategies compared to the Control group,
@@ -4725,14 +4263,14 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Traders,
+Aggregators,
  shown in the right panel,
  exhibit a more favorable coping profile,
  with over 80% of households in the Control group and over 70% in the Conditional/Spillover group reporting no use of coping strategies.
  However,
- traders in the Conditional/Spillover group demonstrate somewhat greater reliance on stress and crisis strategies compared to the Control group,
+ aggregators in the Conditional/Spillover group demonstrate somewhat greater reliance on stress and crisis strategies compared to the Control group,
  though emergency strategies remain very low in both.
- This indicates that while most traders are not resorting to harmful coping behaviors,
+ This indicates that while most aggregators are not resorting to harmful coping behaviors,
  those in the treatment group may still be experiencing marginally more pressure than their Control counterparts—
 perhaps due to market disruptions or unmet expectations associated with the intervention.
 \end_layout
@@ -4743,10 +4281,11 @@ placement document
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
+50
 \begin_inset Graphics
 	filename /home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/coping_score.png
 	lyxscale 25
@@ -4786,7 +4325,15 @@ name "fig:Livelihood-coping-strategies"
 \end_layout
 
 \begin_layout Standard
-
+In summary,
+ while aggregators appear largely food secure and resilient,
+ farmers in the Indirect and Spillover groups show signs of greater food insecurity and reliance on negative coping strategies.
+ Dietary diversity improved modestly across both farmers and aggregators in treatment areas,
+ particularly among spillover groups,
+ suggesting some diffusion of benefits.
+ However,
+ the persistence of food-related stress and coping behaviors among indirectly affected farmers points to uneven gains,
+ highlighting the need to ensure more inclusive and consistent support across all exposed populations.
 \end_layout
 
 \begin_layout Section
@@ -4805,6 +4352,10 @@ In this section,
  we take a closer look at some of the most striking findings from the descriptive analysis.
  In particular,
  we assess whether the observed patterns hold up under more rigorous scrutiny using regression analysis and instrumental variables as an identification methods.
+\end_layout
+
+\begin_layout Subsection
+Prices
 \end_layout
 
 \begin_layout Standard
@@ -4884,8 +4435,8 @@ nolink "false"
 While this comparison is informative,
  it may yield biased estimates due to potential misclassification of farmer exposure.
  Specifically,
- some farmers in control areas may in fact supply WFP-connected traders,
- while some farmers in WFP-implementation areas may transact with traders who are not linked to WFP.
+ some farmers in control areas may in fact supply aggregators that have a WFP connection,
+ while some farmers in WFP-implementation areas may transact with aggregatos who are not linked to WFP.
  This mismatch between geographic assignment and actual trading relationships can lead to attenuation bias,
  underestimating the true impact of the intervention.
  Moreover,
@@ -4895,16 +4446,15 @@ While this comparison is informative,
  differences in prices or market participation may be driven by unobserved spatial variation—
 such as differences in infrastructure,
  agroecological conditions,
- or market access—
-rather than the intervention itself.
+ or market access rather than the intervention itself.
  This geographic heterogeneity further complicates causal interpretation and underscores the need for more granular or behavior-based measures of exposure.
 \end_layout
 
 \begin_layout Standard
 An alternative approach that address these concerns focuses on actual trading relationships rather than geographic assignment.
  For each transaction,
- the survey recorded whether the farmer sold directly to WFP or through a WFP-linked trader,
- as opposed to other channels such as non-linked traders or processors.
+ the survey recorded whether the farmer sold directly to WFP or through a WFP-linked aggregator,
+ as opposed to other channels such as non-linked aggregators or processors.
  Column (2) of Table 
 \begin_inset ERT
 status open
@@ -4925,18 +4475,18 @@ ref{tab:wfp_farmer_prices}
 
 \begin_layout Standard
 While this alternative approach provides a more direct measure of farmer exposure to the intervention,
- it is not without limitations.
+ it is also not without problems.
  Most notably,
- the decision to sell to WFP or through a WFP-linked trader is endogenous and may reflect unobserved characteristics of the farmer or the transaction.
+ the decision to sell to WFP or through a WFP-linked aggregators/traders is endogenous and may reflect unobserved characteristics of the farmer or the transaction.
  For instance,
  farmers with higher-quality maize,
  better market information,
  or stronger bargaining power may be more likely to attract WFP-linked traders and command higher prices,
  regardless of the intervention.
  As a result,
- the observed price premium could partly reflect selection effects rather than a causal impact of trading with WFP-linked buyers.
- Without addressing this endogeneity,
- the estimated price difference may overstate the true effect of the intervention.
+ the observed price premium may reflect selection effects rather than a causal impact of trading with WFP-linked buyers.
+ Depending on the direction of this selection,
+ the estimated price difference could either overstate or understate the true effect of the intervention.
 \end_layout
 
 \begin_layout Standard
@@ -4982,8 +4532,28 @@ This assumption may appear to run counter to our earlier analysis,
 \end_inset
 
  The two-stage least squares estimate suggests that farmers connected to WFP-linked traders received approximately 180 UGX more per kg than those who were not.
- This estimate exceeds the non-instrumented difference,
- indicating that attenuation bias from exposure misclassification likely outweighs any positive selection bias.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Unfortunately,
+ the share of transactions with WFP-connected traders is limited.
+ In particular,
+ of the 2,200 transactions recorded,
+ only about 10 percent involve a WFP connection.
+ Because the estimated Local Average Treatment Effect (LATE) is identified only for the subpopulation of compliers,
+ it may not generalize to the broader population of farmers.
+ In particular,
+ if compliers differ systematically from non-compliers (e.g.,
+ in market access,
+ risk preferences,
+ or capacity to meet WFP quality standards),
+ the estimated treatment effect may overstate or understate the average impact of WFP connections more broadly.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5008,7 +4578,7 @@ In column (4),
 \end_layout
 
 \begin_layout Standard
-We include eight control variables.
+We include seven control variables.
  First,
  we control for the gender,
  age,
@@ -5062,42 +4632,8 @@ Membership in a maize-focused cooperative is included because cooperatives may p
  all of which can impact transaction prices.
  Similarly,
  controlling for the quantity sold in the transaction helps address concerns that larger volumes may be associated with price discounts or premiums due to economies of scale or buyer preferences.
-\end_layout
-
-\begin_layout Standard
-Finally,
- the number of traders a household reports knowing provides a proxy for local market structure and the farmer’s market access.
- Farmers who know more traders may face more competition among buyers,
- which can improve their bargaining position and lead to better prices.
- Including this variable helps mitigate omitted variable bias stemming from unobserved variation in market competitiveness.
  Adding controls further increases the estimate of the impact of policy on the prices farmers receive.
- Farmers that are connected to WFP linked traders get about 260 UGX more than farmers that are not linked to WFP.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Unfortunately,
- the share of transactions with WFP-connected traders is limited.
- In particular,
- of the 2,200 transactions recorded,
- only about 10 percent involve a WFP connection.
- Because the estimated Local Average Treatment Effect (LATE) is identified only for the subpopulation of compliers,
- it may not generalize to the broader population of farmers.
- In particular,
- if compliers differ systematically from non-compliers (e.g.,
- in market access,
- risk preferences,
- or capacity to meet WFP quality standards),
- the estimated treatment effect may overstate or understate the average impact of WFP connections more broadly.
- This is why we also use a different instrument based on the timing of WFP procurement.
-\end_layout
-
-\end_inset
-
-
+ Farmers that are connected to WFP linked aggregators get about 260 UGX more than farmers that are not linked to WFP.
 \end_layout
 
 \begin_layout Standard
@@ -5112,17 +4648,17 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-We run a similar analysis at the trader level,
- focusing on the prices traders received when selling maize onward (to WFP directly,
+We run a similar analysis at the aggregator level,
+ focusing on the prices aggregators received when selling maize onward (to WFP directly,
  to WFP-connected traders,
  or to other buyers).
  At this level,
  we lack detailed transaction-level data.
  However,
  for both the first and second seasons of 2023,
- we collected information on the outlets to which traders sold their maize and the share of total sales going to each type of buyer.
- Traders were also asked to report the prices they received from WFP and non-WFP-connected buyers.
- We used this information to compute a weighted average price for each trader,
+ we collected information on the outlets to which aggregators sold their maize and the shares in total sales going to each type of buyer.
+ Aggregators were also asked to report the prices they received from WFP and non-WFP-connected buyers.
+ We used this information to compute a weighted average price for each aggregator,
  using the reported shares sold to each buyer type as weights.
 \end_layout
 
@@ -5139,7 +4675,7 @@ nolink "false"
 \end_inset
 
 ,
- we also compare prices between traders located in areas where WFP implemented indirect conditional contracts and those in control areas where WFP was not active.
+ we also compare prices between aggregators located in areas where WFP implemented indirect conditional contracts and those in control areas where WFP was not active.
  Column (1) of Table 
 \begin_inset ERT
 status open
@@ -5166,7 +4702,7 @@ nolink "false"
 
 ,
  but now with the addition of season fixed effects.
- The results indicate that traders in treatment areas received,
+ The results indicate that aggregators in treatment areas received,
  on average,
  approximately UGX 60 less per kilogram than their counterparts in control areas.
  This aligns with the visual evidence from Figure 
@@ -5182,21 +4718,21 @@ nolink "false"
 
 ,
  which shows that in season A,
- traders in treatment areas received about UGX 35 less than in control areas,
+ aggregators in treatment areas received about UGX 35 less than in control areas,
  with the gap widening to around UGX 75 per kilogram in season B.
 \end_layout
 
 \begin_layout Standard
 Similar to the farmer analysis above,
- relying solely on a trader’s location to define exposure to the intervention can be misleading.
- Traders are inherently mobile and often operate across multiple areas,
+ relying solely on an aggregator’s location to define exposure to the intervention can be misleading.
+ Aggregators are inherently mobile and often operate across multiple areas,
  potentially sourcing from farmers in both treatment and control locations.
  Moreover,
- not all traders based in WFP implementation areas are necessarily connected to WFP-related supply chains.
+ not all aggregators based in WFP implementation areas are necessarily connected to WFP-related supply chains.
  This geographic misclassification blurs the distinction between treatment and control groups,
- introducing attenuation bias and leading to an underestimation of the true effect of the intervention on trader-level prices.
+ introducing attenuation bias.
  In addition,
- traders operating in different locations may not be directly comparable.
+ aggregators operating in different locations may not be directly comparable.
  Local market dynamics,
  transport infrastructure,
  and crop quality can vary substantially across areas,
@@ -5205,10 +4741,10 @@ Similar to the farmer analysis above,
 \end_layout
 
 \begin_layout Standard
-To more directly estimate the effect of WFP connections on the prices received by traders,
+To more directly estimate the effect of WFP connections on the prices received by aggregators,
  we re-run the analysis using a binary indicator as the independent variable.
- This indicator equals one if the trader sold maize either directly to WFP or to a wholesaler affiliated with WFP,
- and zero if the trader sold to any other type of buyer.
+ This indicator equals one if the aggregator sold maize either directly to WFP or to a wholesaler affiliated with WFP,
+ and zero if the aggregator sold to any other type of buyer.
  The results,
  presented in column (2) of Table 
 \begin_inset ERT
@@ -5224,10 +4760,10 @@ ref{tab:wfp_trader_prices}
 \end_inset
 
 ,
- reveal no statistically significant difference in the prices received by traders with a direct WFP connection.
+ reveal no statistically significant difference in the prices received by aggregators with a direct WFP connection.
  However,
  this measure of connectivity is likely to be affected by selection bias.
- Traders linked to WFP may differ systematically from others—
+ Aggregators linked to WFP may differ systematically from others—
 potentially operating in surplus-producing areas,
  being more professionalized,
  or located closer to procurement hubs.
@@ -5235,25 +4771,23 @@ potentially operating in surplus-producing areas,
  the estimated effect of WFP connectivity may be biased downward.
  At the same time,
  confounding factors could mask the true effect:
- traders who sell to WFP may also possess traits that help them secure higher prices from other buyers—
+ aggregators who sell to WFP may also possess traits that help them secure higher prices from other buyers—
 such as better capital,
  stronger logistics,
  or more consistent quality.
  These traits could partially offset the negative price effect of selling to WFP,
  making the OLS estimate appear close to zero even if a true effect exists.
  To address this,
- we instrument WFP connectivity using geographic strata defined during the sampling design.
- These strata reflect variation in the likelihood that a trader is connected to WFP,
- based on where traders were sampled,
+ we instrument WFP connectivity again using the geographic strata defined during the sampling design.
+ These strata reflect variation in the likelihood that an aggregator is connected to WFP,
+ based on where aggregators were sampled,
  and provide a source of plausibly exogenous variation for identification.
- Using this approach,
- we find that the effect becomes significantly negative,
- suggesting that once selection is accounted for,
- traders connected to WFP receive lower prices.
- This may reflect WFP’s market power,
- standardized pricing,
- or quality-related deductions,
- and highlights the importance of correcting for selection bias when evaluating the impact of institutional procurement on market outcomes.
+\end_layout
+
+\begin_layout Standard
+The parsimonious 2SLS regression reported in column (3) reveals a large and statistically significant reduction in the prices received by aggregators who sell to WFP or to a WFP-connected wholesaler.
+ On average,
+ these aggregators receive nearly 300 UGX less per kilogram of maize compared to those selling to other buyers.
 \begin_inset Foot
 status collapsed
 
@@ -5261,23 +4795,16 @@ status collapsed
 Similar to the regression at the farmer level,
  we find a first stage F-statistic that is substantial,
  suggesting that the instrument is relevant.
- We also ran both placebo tests and find that among farmers who did not trade with WFP-linked traders,
+ We also ran both placebo tests and find that among farmers who did not trade with WFP-linked aggregators,
  those residing in WFP implementation areas actually received significantly lower prices.
- Among farmers who did trade with WFP-linked traders,
+ Among farmers who did trade with WFP-linked aggregators,
  location does not significantly predict prices.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The parsimonious 2SLS regression reported in column (3) reveals a large and statistically significant reduction in the prices received by traders who sell to WFP or to a WFP-connected wholesaler.
- On average,
- these traders receive nearly 300 UGX less per kilogram of maize compared to those selling to other buyers.
  In column (4),
- we extend the specification by adding trader-level and transaction-level controls—
+ we extend the specification by adding aggregator-level and transaction-level controls—
 mirroring the approach used in the farmer-level regressions presented in Table 
 \begin_inset ERT
 status open
@@ -5293,7 +4820,7 @@ ref{tab:wfp_trader_prices}
 
 .
  Including these covariates slightly reduces the magnitude of the estimated effect,
- but the negative and significant relationship between WFP connectivity and trader prices persists,
+ but the negative and significant relationship between WFP connectivity and aggregator prices persists,
  reinforcing the robustness of the finding.
 \end_layout
 
@@ -5306,6 +4833,24 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In sum,
+ the analysis shows that farmers connected to WFP-linked aggregators receive significantly higher prices—
+up to 260 UGX more per kg—
+while aggregators selling to WFP or its affiliates receive substantially less.
+ These results,
+ robust to controls and validated through instrumental variable methods,
+ suggest that the WFP intervention increases farm-gate prices by enhancing market access and competition,
+ but compresses intermediary margins,
+ likely due to timing constraints and procurement pressure.
+ Overall,
+ the intervention appears to shift value chain rents toward farmers.
+\end_layout
+
+\begin_layout Subsection
+Adoption of inputs
 \end_layout
 
 \begin_layout Standard
@@ -5340,8 +4885,8 @@ literal "false"
 One complication in this analysis is that the measure of WFP connectivity is recorded at the transaction level,
  while adoption is measured at the farmer level.
  To address this,
- we aggregate the transaction-level information by defining a farmer as connected to WFP if they engaged in at least one transaction with a WFP-linked trader during the season.
- If none of their transactions involved a WFP-linked trader,
+ we aggregate the transaction-level information by defining a farmer as connected to WFP if they engaged in at least one transaction with a WFP-linked aggregator during the season.
+ If none of their transactions involved a WFP-linked aggregator,
  the farmer is considered not connected.
  This approach ensures that our farmer-level connectivity variable captures meaningful exposure to the intervention.
 \end_layout
@@ -5383,19 +4928,86 @@ nolink "false"
 \end_inset
 
 .
- Adoption of improved agricultural technologies is significantly higher in areas where the policy is active.
- The estimated effect increases when using the endogenous measure of connectivity as the explanatory variable.
+ Adoption of improved agricultural technologies is significantly higher in areas where the policy is active (column (1)).
+ The estimated effect increases when using the endogenous measure of connectivity as the explanatory variable (column (2)).
  Instrumental variable regressions further support a positive and statistically significant impact of the policy on adoption outcomes,
  reinforcing the interpretation that the observed differences are not solely driven by selection or confounding factors.
 \end_layout
 
 \begin_layout Standard
-At the trader level,
+We also look at inputs at the aggregator level.
+ In particular,
+ we ask if aggregators provide inputs like seed,
+ fertilizer and chemicals and/or a tarpaulin that can be used for drying of maize grains,
+ and check for differences between aggregators that are integrated in WFP supply chains versus those that are note.
+ Results are in Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:wfp_trader_inputs}
+\end_layout
+
+\end_inset
+
+.
+ OLS estimates in column (2) show that WFP-connected aggregators are significantly more likely to invest in inputs (coefficient = 0.310,
+ p<0.01),
+ but this relationship may be endogenous.
+ Instrumental variable (IV) estimates in column (3),
+ using geographic strata as an instrument,
+ yield a much larger coefficient (1.131),
+ suggesting that selection bias may downwardly bias OLS estimates.
+ While the IV estimate is only marginally significant due to a larger standard error,
+ the effect remains large and statistically significant at the 5% level in column (4),
+ which includes aggregator-level controls such as gender,
+ age,
+ education,
+ household size,
+ and transaction volume.
+ None of the controls are strongly predictive,
+ though older aggregators are slightly less likely to invest.
+ These findings suggest that WFP’s procurement model leads to meaningful changes in aggregator behavior,
+ encouraging investment in input provision.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/table_WFP_inputs_trader.tex"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In summary,
+ the analysis shows that WFP’s intervention significantly boosts the adoption of agricultural inputs by both farmers and aggregators.
+ Farmers in WFP-linked areas are more likely to adopt improved technologies,
+ with IV estimates confirming this effect is not solely due to selection.
+ Similarly,
+ WFP-connected aggregators are substantially more likely to provide inputs,
+ and IV results suggest that OLS underestimates this effect due to downward bias.
+ Together,
+ these findings indicate that the policy not only improves market access but also encourages complementary investments that support higher productivity.
+\end_layout
+
+\begin_layout Subsection
+Investment in quality
+\end_layout
+
+\begin_layout Standard
+At the aggregator level,
  we assess investment in quality by constructing a binary indicator that captures consistent adherence to key post-harvest practices.
  Specifically,
- a trader is coded as investing in quality if they always dry their maize,
+ an aggregator is coded as investing in quality if they always dry their maize,
  always measure moisture content,
- grade the maize ,
+ grade the maize,
  and clean it using either a screen/sieve or a mechanical cleaner.
  This composite measure captures a holistic approach to quality management,
  emphasizing both the physical condition of the maize and the consistency of practices across transactions.
@@ -5421,77 +5033,16 @@ ref{tab:wfp_trader_qual}
  The OLS regression in column (2) finds no significant relationship between WFP connectivity and quality investment (coefficient = 0.030),
  suggesting that simple correlations may underestimate the true effect.
  However,
- once endogeneity is addressed using strata as an instrument in a 2SLS framework (column 3),
+ once endogeneity is addressed using strata as an instrument in a 2SLS framework (column (3)),
  the estimated effect increases substantially to 0.506 and becomes statistically significant at the 1% level.
- This effect remains robust and slightly increases (to 0.590) after including controls for trader demographics and transaction volume in column (4),
+ This effect remains robust and slightly increases (to 0.590) after including controls for aggregator demographics and transaction volume in column (4),
  with significance maintained at the 5% level.
-\end_layout
-
-\begin_layout Standard
-Notably,
- none of the control variables are statistically significant,
- though signs are as expected:
- older traders and those with more household members appear slightly less likely to invest in quality,
- while male traders and those with more education are more likely,
- albeit not significantly so.
- The jump from the insignificant OLS to a strong IV estimate again suggests that traders who connect with WFP may be systematically different from others in unobserved ways—
-perhaps more professional or better networked—
-and that failing to account for this masks the true causal effect.
- The consistently positive and significant IV estimates across specifications indicate that WFP’s indirect conditional contracting model successfully incentivizes higher standards in post-harvest handling among participating traders.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/table_WFP_qual_trader.tex"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Another outcome we look at is provision of inputs like seed,
- fertilizer and chemicals and/or a tarpaulin that can be used for drying of maize grains.
- Results are in Table 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ref{tab:wfp_trader_inputs}
-\end_layout
-
-\end_inset
-
-.
- OLS estimates in column (2) show that WFP-connected traders are significantly more likely to invest in inputs (coefficient = 0.310,
- p<0.01),
- but this relationship may be endogenous.
- Instrumental variable (IV) estimates in column (3),
- using geographic strata as an instrument,
- yield a much larger coefficient (1.131),
- suggesting that selection bias may downwardly bias OLS estimates.
- While the IV estimate is only marginally significant due to a larger standard error,
- the effect remains large and statistically significant at the 5% level in column (4),
- which includes trader-level controls such as gender,
- age,
- education,
- household size,
- and transaction volume.
- None of the controls are strongly predictive,
- though older traders are slightly less likely to invest.
- These findings suggest that WFP’s procurement model leads to meaningful changes in trader behavior,
- encouraging investment in input provision and improving quality along the supply chain.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "/home/bjvca/IFPRI Dropbox/Data-UG-Conditional Contracts/Internal-UG-Conditional Contracts/IFPRI-UG-Conditional Contracts/4. Stacked survey/5. Sandbox/table_WFP_inputs_trader.tex"
 literal "false"
 
 \end_inset
@@ -5512,25 +5063,25 @@ price realization,
  amount sold,
  household income and other welfare indicators—
 of actors along the value chain,
- especially for smallholder farmers and small maize traders?
+ especially for smallholder farmers and small maize aggregators?
  (2) Do conditional contracts create access to reliable markets and result in value chain transformation or upgrading?
  (3) Does the presence of a formal/institutional buyer in an area (e.g.
- a WFP-affiliated trader or contract scheme) indirectly improve outcomes for nearby smallholders and traders who are not directly contracted?
+ a WFP-affiliated aggregator or contract scheme) indirectly improve outcomes for nearby smallholders and aggregators who are not directly contracted?
  (4) What are the challenges or barriers faced with respect to conditional contracts?
 \end_layout
 
 \begin_layout Standard
 To answer these questions,
  we collected rich,
- stratified data from over 1,300 farmers and nearly 300 traders from six districts in Western and Central Uganda.
- Stratification was done conditional on how farmers and traders were likely to be exposed to the indirect conditional contract programme.
+ stratified data from over 1,300 farmers and nearly 300 aggregators from six districts in Western and Central Uganda.
+ Stratification was done conditional on how farmers and aggregators were likely to be exposed to the indirect conditional contract programme.
  In a first group,
  farmers that were connected to a WFP buyer are included.
  In a second group,
  we interviewed their neighbors.
  A third group was in a district where WFP was not active.
- For traders,
- we only differentiated between traders working in areas where WFP is active versus districts where they are not.
+ For aggregators,
+ we only differentiated between those working in areas where WFP is active versus districts where they are not.
  We then attempt to learn about the impact by comparing the groups.
  We applied both descriptive and econometric techniques—
 mediation analysis and instrumental variables regression—
@@ -5538,53 +5089,85 @@ to disentangle the effects of the procurement policy from other factors.
 \end_layout
 
 \begin_layout Standard
-We find that farmers in areas exposed to the policy were significantly more likely to participate in markets and to sell larger quantities of maize.
- They also cultivated larger areas of maize and adopted improved seed varieties and,
- to a lesser extent,
- fertilizer.
- The policy also led to higher prices for farmers and lower margins for traders,
- suggesting a more efficient value chain.
- Mediation analysis revealed that part of the price increase was directly due to the policy,
- while part was mediated through enhanced competition among traders.
+The analysis provides robust evidence that WFP’s indirect conditional contracting policy significantly reshaped maize market dynamics in the targeted areas.
+ One of the clearest impacts is the increased market participation and production intensity among farmers.
+ The intervention encouraged more farmers to grow maize and to allocate larger portions of land to its cultivation,
+ with consistent increases in output observed across seasons.
+ This expansion in production was supported by a notable rise in the adoption of improved technologies—
+particularly improved seed varieties—
+which are strongly linked to productivity gains.
+ While fertilizer and pesticide use remained relatively low or declined slightly,
+ likely due to cost or compliance with WFP quality standards,
+ the seed adoption effect stands out as a key channel through which the policy boosted marketable surplus.
 \end_layout
 
 \begin_layout Standard
-Traders in policy-affected areas handled significantly more maize,
- indicating improved aggregation and possibly greater investments in storage and transport infrastructure.
- They also sourced more from cooperatives and engaged more frequently with WFP,
- signaling that the policy may be reinforcing more formal and traceable sourcing arrangements.
+The intervention also had measurable effects on upstream and downstream linkages within the value chain.
+ Aggregators in treatment areas reported sourcing more from markets and cooperatives,
+ which may reflect the procedural requirements of the policy (e.g.,
+ farmer registration).
+ Additionally,
+ around 10 percent of maize handled by aggregators in these areas was sold to WFP either directly or via affiliated wholesalers.
+ This change in sourcing and sales patterns indicates that the intervention not only affected production volumes but also altered how maize flowed through the value chain,
+ with implications for traceability and formalization.
 \end_layout
 
 \begin_layout Standard
-The policy may also influence price seasonality,
- with some evidence that farmers in treated areas delay sales to benefit from higher prices later in the season.
- This has implications for both farmer incomes and consumer access.
- Despite WFP’s commitment to inclusivity,
- the policy did not result in significantly different price effects across gender or age groups.
- There was also no different impact on small farmers.
+One of the most important findings concerns price transmission.
+ Farmers in WFP-linked areas received significantly higher prices—
+up to 260 UGX more per kg—
+while aggregators operating within WFP supply chains received substantially less.
+ Mediation analysis shows that this shift in value chain rents was primarily driven by increased competition among aggregators,
+ suggesting that the intervention enhanced market efficiency.
+ Furthermore,
+ WFP presence appears to influence seasonal marketing behavior,
+ with farmers in treatment areas delaying sales to take advantage of better prices.
+ While this can support higher incomes,
+ it may also contribute to price inflation,
+ depending on procurement timing and market expectations.
 \end_layout
 
 \begin_layout Standard
-We find suggestive evidence that WFP activities have general equilibrium effects,
- increasing prices not just for farmers that sell directly to WFP but also for farmers that sell to other traders.
- Farmers are typically both sellers and buyers of maize,
- and so whether higher prices are good or bad for farmers depends on whether they are net sellers or net buyers at that point in time 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "deaton1989rice"
-literal "false"
+The policy also spurred complementary investments.
+ Farmers in intervention areas adopted a broader range of inputs,
+ and aggregators connected to WFP were significantly more likely to provide inputs such as seed,
+ fertilizer,
+ or drying tarpaulins to suppliers.
+ Similarly,
+ investment in quality assurance practices—
+such as drying,
+ grading,
+ and moisture measurement—
+was significantly higher among WFP-linked aggregators once endogeneity was accounted for.
+ These complementary investments suggest that the intervention has not only improved immediate market access but also contributed to upgrading value chain functions in ways that could support long-term productivity and resilience.
+\end_layout
 
-\end_inset
+\begin_layout Standard
+In terms of inclusivity,
+ the intervention appears to have increased participation among smallholder farmers,
+ with aggregators in WFP areas reporting a significantly higher share of smallholder suppliers.
+ While the shares of women and youth involved in trading relationships remained relatively stable across groups,
+ the evidence does suggest some positive movement toward the inclusion of the policy’s target populations.
+ However,
+ food security outcomes remain mixed.
+ While aggregators appear largely food secure,
+ farmers in treatment areas—
+particularly those in the indirect or spillover groups—
+continue to report higher levels of food insecurity and greater reliance on negative coping strategies.
+ These findings highlight the need for continued attention to equitable distribution of benefits,
+ particularly for indirectly exposed populations who may face unmet expectations or barriers to full participation.
+\end_layout
 
-.
- Seasonality in maize transactions results in seaonality in prices,
- with farmers being net sellers early in the season and becoming net buyers later in the season.
- It is important that WFP is aware of this and plans the timing of its procurement activities to increase counter cyclical effects,
- increasing demand for maize early in the season to drive up prices and increasing benefits for farmers,
- and reducing purchased (or even selling to the market) of maize later in the season to reduce upward price pressure.
- This will also benefit WFP because it allows them to buy when maize is cheapest.
- Systems need to be in place to avoid delays in approvals etc.
- We get the impression from our data that WFP is generally too late with their procurement.
+\begin_layout Standard
+Overall,
+ the WFP procurement policy has demonstrated clear potential to strengthen agricultural markets,
+ improve producer prices,
+ and stimulate investment in both input use and quality management.
+ However,
+ the benefits are not uniformly distributed,
+ and the persistence of food insecurity and coping among certain farmer groups points to the need for more inclusive support mechanisms.
+ Future iterations of the policy could focus on improving reach and accessibility for the most vulnerable farmers,
+ while continuing to build on the successful elements of market integration and value chain upgrading that this analysis has highlighted.
 \end_layout
 
 \begin_layout Standard
